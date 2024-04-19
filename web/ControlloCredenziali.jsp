@@ -22,14 +22,19 @@
 	    // Ottieni i parametri dalla richiesta HTTP
 	    String nomeUtente = request.getParameter("nomeUtente");
 	    String password = request.getParameter("password");
-	    String sql = "SELECT username, password FROM  segretari WHERE username='"+nomeUtente+"' AND password='"+password+"'";
+	    String sql = "SELECT username, password, id_sede FROM  segretari WHERE username='"+nomeUtente+"' AND password='"+password+"'";
 	   	ResultSet rs = stmt.executeQuery(sql);
 	   	boolean registrato = false;
 	   	while(rs.next()){
 	   		registrato = true;
+                        if(rs.getInt("id_sede") == null){
+                            response.sendRedirect("amministratore");
+                        }
+                            
+                        
                         response.sendRedirect("sede.jsp");
 	   		//session.setAttribute("nomeUtente", rs.getString("username"));
-	   		out.println("<h1>" + registrato + "</h1>");	
+                        
 	   	}
 	   	if(registrato==false){
                     out.println("non registrato");	
