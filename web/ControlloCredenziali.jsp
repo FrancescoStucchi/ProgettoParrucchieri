@@ -27,14 +27,12 @@
 	   	boolean registrato = false;
 	   	while(rs.next()){
 	   		registrato = true;
-                        if(rs.getInt("id_sede") == null){
-                            response.sendRedirect("amministratore");
+                        if(rs.getInt("id_sede") == 0){
+                            response.sendRedirect("amministratore.jsp");
+                        }else{
+                            response.sendRedirect("sede.jsp");
+                            request.setAttribute("id_sede", rs.getString("id_sede"));
                         }
-                            
-                        
-                        response.sendRedirect("sede.jsp");
-	   		//session.setAttribute("nomeUtente", rs.getString("username"));
-                        
 	   	}
 	   	if(registrato==false){
                     out.println("non registrato");	

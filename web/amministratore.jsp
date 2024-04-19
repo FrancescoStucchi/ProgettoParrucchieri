@@ -1,6 +1,6 @@
 <%-- 
-    Document   : sede
-    Created on : 12-apr-2024, 12.20.30
+    Document   : amministratore
+    Created on : 19-apr-2024, 11.20.30
     Author     : Francesco
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>benevenuto nella sede di </h1>
+        <h1>pagina amministrazione</h1>
     </body>
 </html>
