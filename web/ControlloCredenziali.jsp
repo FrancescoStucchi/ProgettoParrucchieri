@@ -7,6 +7,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
+<%@page import="classi.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,22 +18,22 @@
     <body> 
         <%
 	if (request.getMethod().equals("POST")) {
-	  	Class.forName("com.mysql.cj.jdbc.Driver");
-	    Connection cn=DriverManager.getConnection("jdbc:mysql://localhost/parrucchieridb","root","");
-	    Statement stmt=cn.createStatement();
+            Gestore gestore =new Gestore();
+            gestore.loadDatabase();
 	    // Ottieni i parametri dalla richiesta HTTP
 	    String nomeUtente = request.getParameter("nomeUtente");
 	    String password = request.getParameter("password");
-	    String sql = "SELECT username, password, id_sede FROM  segretari WHERE username='"+nomeUtente+"' AND password='"+password+"'";
-	   	ResultSet rs = stmt.executeQuery(sql);
+	    String sql = "SELECT username, password, id_sede, tipo FROM  segretari WHERE username='"+nomeUtente+"' AND password='"+password+"'";
+            ResultSet rs = gestore.getFunzioni().select(sql);
 	   	boolean registrato = false;
 	   	while(rs.next()){
 	   		registrato = true;
-                        if(rs.getInt("id_sede") == 0){
+                        if(rs.getInt("tipo") == 1){
                             response.sendRedirect("amministratore.jsp");
                         }else{
                             response.sendRedirect("sede.jsp");
-                            request.setAttribute("id_sede", rs.getString("id_sede"));
+                            session.setAttribute("username", rs.getString("username"));
+                            session.setAttribute("id_sede", rs.getInt("id_sede"));
                         }
 	   	}
 	   	if(registrato==false){
