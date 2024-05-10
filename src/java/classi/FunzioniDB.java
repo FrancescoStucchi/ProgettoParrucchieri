@@ -1,10 +1,12 @@
+package classi;
+
 /*
  * Created on 29-ott-2004
  *
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-package ClassiJava;
+
 
 import java.io.File;
 import java.io.FileWriter;
@@ -51,9 +53,6 @@ public class FunzioniDB {
 
 	}
 
-
-
-
 	public String fc(String campo)
 	{
 		campo="'"+ campo.replaceAll("'","''")+ "'";
@@ -65,8 +64,6 @@ public class FunzioniDB {
 	    if (campo.equals("null")) campo="";
 	    return campo;
 	}
-
-
 
 	/**Funzione di conversione date.
 	 * @param data Accetta una data nel formato gg/mm/aaaa. Accetta anche date nel formato gg-mmm-aaaa esempio 8-giu-2005
@@ -370,12 +367,4 @@ public class FunzioniDB {
             }
 
 	}
-
-
-
-
-
-
-
-
 }
