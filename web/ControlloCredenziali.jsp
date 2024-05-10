@@ -32,7 +32,7 @@
                         if(rs.getInt("tipo") == 1){
                             response.sendRedirect("amministratore.jsp");
                         }else{
-                            response.sendRedirect("sede.jsp");
+                            response.sendRedirect("HomeSegretario.jsp");
                             session.setAttribute("username", rs.getString("username"));
                             session.setAttribute("id_sede", rs.getInt("id_sede"));
                         }

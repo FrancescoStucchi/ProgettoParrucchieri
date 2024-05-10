@@ -1,8 +1,3 @@
-<%-- 
-    Document   : sede
-    Created on : 12-apr-2024, 12.20.30
-    Author     : Francesco
---%>
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="classi.Gestore"%>
@@ -25,7 +20,7 @@
 
         #header {
             background-color: #f0f0f0;
-            padding: 10px;
+            padding: 5px;
         }
 
         #logo {
@@ -116,8 +111,8 @@
                 %>
             </div>
             <ul>
-                <li><a href="#" id="Home">Home</a></li>
-                <li><a href="#">Profilo</a></li>
+                <li><a href="HomeSegretario.jsp">Clienti</a></li>
+                <li><a href="SchedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
@@ -125,7 +120,6 @@
     </div>
     <br>
     <br>
-    <section >
     <div class="container">
         <table>
           <thead>
@@ -176,31 +170,5 @@
           </tbody>
         </table>
       </div>
-    </section>
-    
-    
-      <section id="homeSection">
-    <h2>Sezione Home</h2>
-    <p>Contenuto della sezione Home</p>
-    <a href="#" id="profiloLink">Profilo</a>
-  </section>
-
-  <section id="profiloSection" style="display: none;">
-    <h2>Sezione Profilo</h2>
-    <p>Contenuto della sezione profilo</p>
-  </section>
-
-  <script>
-    const profiloLink = document.getElementById('profiloLink');
-    const homeSection = document.getElementById('homeSection');
-    const profiloSection = document.getElementById('profiloSection');
-
-    profiloLink.addEventListener('click', function() {
-      homeSection.style.display = 'none';
-      profiloSection.style.display = 'block';
-    });
-  </script>
-
-
 </body>
 </html>
