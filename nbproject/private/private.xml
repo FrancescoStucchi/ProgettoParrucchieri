@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/sede.jsp</file>
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/ControlloCredenziali.jsp</file>
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/parrucchieri.jsp</file>
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/clienti.jsp</file>
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/amministratore.jsp</file>
             <file>file:/C:/Users/5binfo/Desktop/ProgettoParrucchieri/web/index.jsp</file>
+=======
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/amministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/sede.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/index.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/src/java/classi/FunzioniDB.java</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/src/java/classi/Gestore.java</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/ControlloCredenziali.jsp</file>
+>>>>>>> c65b0385d7942b91d0de38614b7571515379b2b6
         </group>
     </open-files>
 </project-private>
