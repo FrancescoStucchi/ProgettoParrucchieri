@@ -1,19 +1,22 @@
 <%-- 
-    Document   : ControlloCredenziali
-    Created on : 12-apr-2024, 12.00.25
-    Author     : Francesco
+    Document   : parrucchieri.jsp
+    Created on : 19-apr-2024, 12.13.09
+    Author     : 5binfo
 --%>
-<%@page import="java.lang.ProcessBuilder.Redirect"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <title>JSP Page</title>
     </head>
-    <body> 
+    <body>
+        <h1>gestore parrucchieri!</h1>
         <%
             if (request.getMethod().equals("POST")) {
                 Class.forName("com.mysql.cj.jdbc.Driver");
