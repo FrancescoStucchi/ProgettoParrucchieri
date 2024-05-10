@@ -3,17 +3,7 @@
   pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-      .error {
-        color: red;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
+
     <%
       if (request.getMethod().equals("POST")) {
         try {
@@ -31,6 +21,7 @@
           boolean registrato = false;
           while (rs.next()) {
             registrato = true;
+            session.setAttribute("credentialValidated", true);
             if (rs.getInt("id_sede") == 0) {
               response.sendRedirect("amministratore.jsp");
             } else {
@@ -39,8 +30,10 @@
             }
           }
 
-          if (!registrato) {
+          if (!registrato) { 
             out.println("<p class=\"error\">Credenziali errate. Riprova.</p>");
+            session.setAttribute("credentialValidated", false);
+            response.sendRedirect("index.jsp");
           }
         } catch (Exception e) {
           out.println("<p class=\"error\">Si è verificato un errore. Riprova più tardi.</p>");
