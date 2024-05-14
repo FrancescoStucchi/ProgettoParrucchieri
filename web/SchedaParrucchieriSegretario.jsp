@@ -116,7 +116,7 @@
                 %>
             </div>
             <ul>
-                <li><a href="#">Clienti</a></li>
+                <li><a href="HomeParrucchieriSegretario.jsp">Clienti</a></li>
                 <li><a href="SchedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
