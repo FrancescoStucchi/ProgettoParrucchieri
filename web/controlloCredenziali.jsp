@@ -30,7 +30,7 @@
                 } else {
                     session.setAttribute("username", rs.getString("username"));
                     session.setAttribute("id_sede", rs.getInt("id_sede"));
-                    response.sendRedirect("HomeSegretario.jsp");
+                    response.sendRedirect("homeSegretario.jsp");
                 }
             }
             if (!registrato) { 

@@ -1,11 +1,7 @@
-<%-- 
-    Document   : sede
-    Created on : 12-apr-2024, 12.20.30
-    Author     : Francesco
---%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="classi.Gestore"%>
+<%@page import="classi.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -105,19 +101,15 @@
                         while(rs.next()){
                             nomeSede=rs.getString("citta");
                         }
-                        %>
-                        <h1><%= nomeSede%></h1>
-                    <%  
-                        //out.write("Benvenuto nella sede di "+nomeSede);
-                    } catch (Exception e) {
-                        out.println("<p class=\"error\">Si è verificato un errore. Riprova più tardi.</p>");
-                        e.printStackTrace();
-                    }
+                %>
+                <h1><%= nomeSede%></h1>
+                <%  
+                     
                 %>
             </div>
             <ul>
-                <li><a href="#">Clienti</a></li>
-                <li><a href="SchedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
+                <li><a href="homeSegretario.jsp">Clienti</a></li>
+                <li><a href="hchedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
@@ -127,66 +119,34 @@
     <br>
     <div class="container">
         <table>
-          <thead>
-            <tr>
-              <th>DO</th>
-              <th>888</th>
-               <th>DO</th>
-              <th>888</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ciaoCiao</td>
-              <td>Testo 2</td>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-            </tr>
-            <tr>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-            </tr>
-            <tr>
-              <td>Testo 5</td>
-              <td>Testo 6</td>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-            </tr>
-             <tr>
-              <td>Testo 5</td>
-              <td>Testo 6</td>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-            </tr>
-             <tr>
-              <td>Testo 5</td>
-              <td>Testo 6</td>
-              <td>Testo 3</td>
-              <td>Testo 4</td>
-            </tr>
-             <tr>
-              <td>Testo 5</td>
-              <td>Testo 6</td>
-              <td>Testo 3</td>
-              <td><form action="AggiungiParrucchieri.jsp">
-            <input type="submit" value="Aggiungi">
-        </form></td>
-            </tr>
-          </tbody>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>COGNOME</th>
+                <th>TELEFONO</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%
+                sql = "SELECT id, nome, cognome, telefono FROM segretari WHERE id_sede='"+id_sede+"' AND tipo = 0";
+                rs = gestore.getFunzioni().select(sql);
+                while(rs.next()){
+                    out.println("<tr>");
+                    out.println("<td>" + rs.getInt("id") + "</td>");
+                    out.println("<td>" + rs.getString("nome") + "</td>");
+                    out.println("<td>" + rs.getString("cognome") + "</td>");
+                    out.println("<td>" + rs.getString("telefono") + "</td>");
+                    out.println("</tr>");    
+                }    
+
+                } catch (Exception e) {
+                    out.println("<p class=\"error\">Si è verificato un errore. Riprova più tardi.</p>");
+                    e.printStackTrace();
+                }
+            %>
+            </tbody>
         </table>
-        
-        <form action="AggiungiParrucchieri.jsp">
-            <input type="submit" value="Aggiungi">
-        </form>
-        <form action="AggiungiParrucchieri.jsp">
-            <input type="submit" value="Modifica">
-        </form>
-        <form action="AggiungiParrucchieri.jsp">
-            <input type="submit" value="Elimina">
-        </form>
-      </div>
+    </div>
 </body>
 </html>
-

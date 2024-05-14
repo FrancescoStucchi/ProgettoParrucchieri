@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <h1>TT</h1>
-    <form method="post" action="ControlloCredenziali.jsp">
+    <form method="post" action="controlloCredenziali.jsp">
       <%
           Boolean credentialValidated = (Boolean) session.getAttribute("credentialValidated");
           String errorMessage = "";
