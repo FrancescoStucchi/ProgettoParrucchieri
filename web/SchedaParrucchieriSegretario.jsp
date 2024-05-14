@@ -170,10 +170,22 @@
               <td>Testo 5</td>
               <td>Testo 6</td>
               <td>Testo 3</td>
-              <td>Testo 4</td>
+              <td><form action="AggiungiParrucchieri.jsp">
+            <input type="submit" value="Aggiungi">
+        </form></td>
             </tr>
           </tbody>
         </table>
+        
+        <form action="AggiungiParrucchieri.jsp">
+            <input type="submit" value="Aggiungi">
+        </form>
+        <form action="AggiungiParrucchieri.jsp">
+            <input type="submit" value="Modifica">
+        </form>
+        <form action="AggiungiParrucchieri.jsp">
+            <input type="submit" value="Elimina">
+        </form>
       </div>
 </body>
 </html>
