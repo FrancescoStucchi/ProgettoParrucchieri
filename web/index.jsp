@@ -20,9 +20,7 @@
               errorMessage = "Credenziali errate";
           }
       %>
-      <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 10px;">
-        <%= errorMessage %>
-      </div>
+      
       <div class="input-group">
         <label for="nomeUtente">Nome utente:</label>
         <input type="text" id="nomeUtente" name="nomeUtente" required>
@@ -30,6 +28,9 @@
       <div class="input-group">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
+      </div>
+      <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 10px;">
+        <%= errorMessage %>
       </div>
       <button type="submit">Accedi</button>
     </form>
