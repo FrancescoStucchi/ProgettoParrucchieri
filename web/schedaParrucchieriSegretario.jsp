@@ -1,3 +1,8 @@
+<%-- 
+    Document   : sede
+    Created on : 12-apr-2024, 12.20.30
+    Author     : Francesco
+--%>
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="classi.Gestore"%>
@@ -111,8 +116,8 @@
                 %>
             </div>
             <ul>
-                <li><a href="HomeSegretario.jsp">Clienti</a></li>
-                <li><a href="SchedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
+                <li><a href="homeParrucchieriSegretario.jsp">Clienti</a></li>
+                <li><a href="schedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
@@ -132,7 +137,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>Testo 1</td>
+              <td>ciaoCiao</td>
               <td>Testo 2</td>
               <td>Testo 3</td>
               <td>Testo 4</td>
@@ -172,3 +177,4 @@
       </div>
 </body>
 </html>
+
