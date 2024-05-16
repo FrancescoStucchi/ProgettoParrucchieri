@@ -81,7 +81,65 @@
 
       th {
         background-color: #f0f0f0;
-}
+    }
+    /* Stile per i pulsanti "Modifica" ed "Elimina" */
+    .modifica-btn,
+    .elimina-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #4CAF50; /* Colore di sfondo verde */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Stile per il pulsante "Modifica" */
+    .modifica-btn {
+        background-color: blue; /* Colore di sfondo verde */
+    }
+
+    /* Stile per il pulsante "Elimina" */
+    .elimina-btn {
+        background-color: #f44336; /* Colore di sfondo rosso */
+    }
+
+    /* Stile quando il cursore è sopra il pulsante */
+    .modifica-btn:hover,
+    .elimina-btn:hover {
+        background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
+    }
+    .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative; /* Aggiunto posizionamento relativo per posizionare il bottone accanto alla tabella */
+    }
+    .aggiungi-btn {
+        background-color: #4CAF50; /* Colore di sfondo verde */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute;
+        top: 200px; /* Move down 10px */
+        left: 450px; /* Move to the right 20px */
+        margin-top: -40px;
+    }
+
+
+    /* Stile quando il cursore è sopra il pulsante */
+    .aggiungi-btn:hover {
+        background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
+    }
     </style>
 </head>
 <body>
@@ -116,6 +174,7 @@
         </nav>
     </div>
     <br>
+    <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
     <br>
     <div class="container">
         <table>
@@ -125,11 +184,13 @@
                 <th>NOME</th>
                 <th>COGNOME</th>
                 <th>TELEFONO</th>
+                <th>MODIFICA</th>
+                <th>ELIMINA</th>
               </tr>
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM segretari WHERE id_sede='"+id_sede+"' AND tipo = 0";
+                sql = "SELECT id, nome, cognome, telefono FROM clienti WHERE id_sede='"+id_sede+"' AND tipo = 0";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
@@ -137,6 +198,8 @@
                     out.println("<td>" + rs.getString("nome") + "</td>");
                     out.println("<td>" + rs.getString("cognome") + "</td>");
                     out.println("<td>" + rs.getString("telefono") + "</td>");
+                    out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
+                    out.println("<td><button class='elimina-btn' onclick=\"window.location.href='elimina.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
                 }    
 
