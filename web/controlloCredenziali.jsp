@@ -1,4 +1,4 @@
-<%@page import="java.lang.ProcessBuilder.Redirect"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -15,7 +15,6 @@
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/parrucchieridb", "root", "");
                 Statement stmt = cn.createStatement();
-
                 // Ottieni i parametri dalla richiesta HTTP
                 String nomeUtente = request.getParameter("nomeUtente");
                 String password = request.getParameter("password");
