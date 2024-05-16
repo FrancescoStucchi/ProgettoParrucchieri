@@ -177,13 +177,13 @@
           </tbody>
         </table>
         
-        <form action="AggiungiParrucchieri.jsp">
+        <form action="aggiungiParrucchieri.jsp">
             <input type="submit" value="Aggiungi">
         </form>
-        <form action="AggiungiParrucchieri.jsp">
+        <form action="aggiungiParrucchieri.jsp">
             <input type="submit" value="Modifica">
         </form>
-        <form action="AggiungiParrucchieri.jsp">
+        <form action="aggiungiParrucchieri.jsp">
             <input type="submit" value="Elimina">
         </form>
       </div>

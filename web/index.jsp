@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <h1>TT</h1>
-    <form method="post" action="controlloCredenziali.jsp">
+    <form method="POST" action="controlloCredenziali.jsp">
       <%
           Boolean credentialValidated = (Boolean) session.getAttribute("credentialValidated");
           String errorMessage = "";
@@ -32,7 +32,7 @@
       <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 10px;">
         <%= errorMessage %>
       </div>
-      <button type="submit">Accedi</button>
+      <input type="submit" value="Accedi"/>
     </form>
   </div>
 </body>
