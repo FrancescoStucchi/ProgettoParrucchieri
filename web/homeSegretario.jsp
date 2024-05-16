@@ -168,6 +168,7 @@
             <ul>
                 <li><a href="homeSegretario.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
+                <li><a href="schedaSegretariSegretario.jsp">Segretari</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
@@ -190,7 +191,7 @@
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM clienti WHERE id_sede='"+id_sede+"' AND tipo = 0";
+                sql = "SELECT id, nome, cognome, telefono FROM clienti";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
