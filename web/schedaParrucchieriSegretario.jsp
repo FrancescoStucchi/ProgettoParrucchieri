@@ -76,7 +76,7 @@
       th, td {
         padding: 8px;
         border: 1px solid #ddd;
-        text-align: left;
+        text-align: center;
       }
 
       th {
@@ -124,15 +124,16 @@
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
-        position: absolute;
-        top: 200px; /* Move down 10px */
-        left: 450px; /* Move to the right 20px */
-        margin-top: -40px;
+    }
+
+    .containerButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 
@@ -175,7 +176,9 @@
         </nav>
     </div>
     <br>
-    <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    <div class="containerButton">
+        <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    </div>
     <br>
     <div class="container">
         <table>

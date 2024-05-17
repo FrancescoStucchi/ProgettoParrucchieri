@@ -76,7 +76,7 @@
       th, td {
         padding: 8px;
         border: 1px solid #ddd;
-        text-align: left;
+        text-align: center;
       }
 
       th {
