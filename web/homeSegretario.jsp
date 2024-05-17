@@ -109,7 +109,7 @@
     /* Stile quando il cursore è sopra il pulsante */
     .modifica-btn:hover,
     .elimina-btn:hover {
-        background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
+        background-color: blueviolet; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
     }
     .container {
         width: 100%;
@@ -167,7 +167,6 @@
             <ul>
                 <li><a href="homeSegretario.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
-                <li><a href="schedaSegretariSegretario.jsp">Segretari</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
