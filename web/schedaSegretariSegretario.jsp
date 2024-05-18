@@ -124,16 +124,15 @@
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
+        display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
-    }
-
-    .containerButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 200px; /* Move down 10px */
+        left: 450px; /* Move to the right 20px */
+        margin-top: -40px;
     }
 
 
@@ -176,9 +175,6 @@
         </nav>
     </div>
     <br>
-    <div class="containerButton">
-        <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
-    </div>
     <br>
     <div class="container">
         <table>
@@ -188,13 +184,11 @@
                 <th>NOME</th>
                 <th>COGNOME</th>
                 <th>TELEFONO</th>
-                <th>MODIFICA</th>
-                <th>ELIMINA</th>
               </tr>
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM parrucchieri WHERE id_sede='"+id_sede+"'";
+                sql = "SELECT id, nome, cognome, telefono FROM segretari WHERE id_sede='"+id_sede+"' AND tipo = 0";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
@@ -202,8 +196,6 @@
                     out.println("<td>" + rs.getString("nome") + "</td>");
                     out.println("<td>" + rs.getString("cognome") + "</td>");
                     out.println("<td>" + rs.getString("telefono") + "</td>");
-                    out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
-                    out.println("<td><button class='elimina-btn' onclick=\"window.location.href='elimina.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
                 }    
 
