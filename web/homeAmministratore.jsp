@@ -151,7 +151,7 @@
                         String nomeSede="";
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        String id_sede = session.getAttribute("id_sede").toString();        
+                        String id_sede = request.getParameter("sede_scelta").toString();        
                         String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
                         ResultSet rs = gestore.getFunzioni().select(sql);
                         boolean registrato = false;
@@ -168,7 +168,7 @@
                 <li><a href="homeSegretario.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
                 <li><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
-                <li><a href="schedaSediAmministratore.jsp">Segretari</a></li>
+                <li><a href="schedaSediAmministratore.jsp">Sedi</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
