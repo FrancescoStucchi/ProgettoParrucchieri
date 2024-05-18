@@ -135,6 +135,8 @@
         justify-content: center;
         align-items: center;
     }
+
+
     /* Stile quando il cursore è sopra il pulsante */
     .aggiungi-btn:hover {
         background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
@@ -166,18 +168,18 @@
             </div>
             <ul>
                 <li><a href="homeSegretario.jsp">Clienti</a></li>
-                <li><a href="schedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
+                <li><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
+                <li><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
+                <li><a href="schedaSediAmministratore.jsp">Sedi</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
         </nav>
     </div>
-     
     <br>
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
     </div>
-    
     <br>
     <div class="container">
         <table>
@@ -193,7 +195,7 @@
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM clienti";
+                sql = "SELECT id, nome, cognome, telefono FROM parrucchieri WHERE id_sede='"+id_sede+"'";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
