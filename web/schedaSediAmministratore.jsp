@@ -4,18 +4,6 @@
     Author     : claud
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="classi.*"%>
@@ -170,7 +158,7 @@
                         String nomeSede="";
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        String id_sede = session.getAttribute("id_sede").toString();        
+                        String id_sede = session.getAttribute("id_sede").toString();
                         String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
                         ResultSet rs = gestore.getFunzioni().select(sql);
                         boolean registrato = false;
@@ -184,7 +172,7 @@
                 %>
             </div>
             <ul>
-                <li><a href="homeSegretario.jsp">Clienti</a></li>
+                <li><a href="homeAmministratore.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
                 <li><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
                 <li><a href="schedaSediAmministratore.jsp">Sedi</a></li>
@@ -203,9 +191,10 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>NOME</th>
-                <th>COGNOME</th>
-                <th>TELEFONO</th>
+                <th>CITTA</th>
+                <th>CAP</th>
+                <th>VIA</th>
+                <th>N.CIVICO</th>
                 <th>MODIFICA</th>
                 <th>ELIMINA</th>
               </tr>
@@ -224,7 +213,7 @@
                     out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
                     out.println("<td><button class='elimina-btn' onclick=\"window.location.href='elimina.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
-                }    
+                }
 
                 } catch (Exception e) {
                     out.println("<p class=\"error\">Si è verificato un errore. Riprova più tardi.</p>");

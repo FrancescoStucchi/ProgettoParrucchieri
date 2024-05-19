@@ -153,6 +153,7 @@
                         gestore.loadDatabase();
                         String id_sede = request.getParameter("sede_scelta").toString();        
                         String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
+                        session.setAttribute("id_sede", id_sede);
                         ResultSet rs = gestore.getFunzioni().select(sql);
                         boolean registrato = false;
                         while(rs.next()){
