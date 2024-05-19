@@ -78,6 +78,12 @@
             <input type="submit" value="Seleziona Sede">
         </form>
     </div>
-    
+    <script>
+        document.getElementById("sedeForm").addEventListener("submit", function(event) {
+            var sedeSelect = document.getElementById("sedeSelect");
+            var selectedId = sedeSelect.options[sedeSelect.selectedIndex].value;
+            sessionStorage.setItem("id_sede", selectedId);
+        });
+    </script>
 </body>
 </html>
