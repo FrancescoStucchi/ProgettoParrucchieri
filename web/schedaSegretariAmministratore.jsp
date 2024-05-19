@@ -165,7 +165,7 @@
                 %>
             </div>
             <ul>
-                <li><a href="homeSegretario.jsp">Clienti</a></li>
+                <li><a href="homeAmministratore.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
                 <li><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
                 <li><a href="schedaSediAmministratore.jsp">Sedi</a></li>
