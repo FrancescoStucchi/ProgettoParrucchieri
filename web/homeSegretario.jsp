@@ -175,7 +175,9 @@
         </nav>
     </div>
     <br>
-    <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    <div>
+        <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    </div>
     <br>
     <div class="container">
         <table>
