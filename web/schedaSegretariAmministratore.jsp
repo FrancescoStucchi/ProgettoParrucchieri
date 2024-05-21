@@ -195,7 +195,7 @@
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM segretari where tipo = 0 AND sedi WHERE id='"+id_sede+"'";
+                sql = "SELECT id, nome, cognome, telefono FROM segretari where tipo = 0 AND  id_sede='"+id_sede+"'";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");

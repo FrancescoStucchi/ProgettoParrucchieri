@@ -149,9 +149,14 @@
                 <% 
                     try{
                         String nomeSede="";
+                        String id_sede;
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        String id_sede = request.getParameter("sede_scelta").toString();        
+                        try{
+                             id_sede = request.getParameter("sede_scelta").toString();
+                        } catch (Exception e) {
+                             id_sede = session.getAttribute("id_sede").toString();
+                        }
                         String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
                         session.setAttribute("id_sede", id_sede);
                         ResultSet rs = gestore.getFunzioni().select(sql);
