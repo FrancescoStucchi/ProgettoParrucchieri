@@ -49,7 +49,6 @@
             <li class="<%= request.getRequestURI().endsWith("schedaParrucchieriAmministratore.jsp") ? "active" : "" %>"><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
             <li class="<%= request.getRequestURI().endsWith("schedaSegretariAmministratore.jsp") ? "active" : "" %>"><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
             <li class="<%= request.getRequestURI().endsWith("schedaSediAmministratore.jsp") ? "active" : "" %>"><a href="schedaSediAmministratore.jsp">Sedi</a></li>
-            <li class="<%= request.getRequestURI().endsWith("#") ? "active" : "" %>"><a href="#">Impostazioni</a></li>
             <!-- Aggiungi altri elementi del menu se necessario -->
         </ul>
     </nav>
