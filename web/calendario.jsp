@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario con JSP</title>
+    <title>Calendario settimanale con JSP</title>
     <!-- FullCalendar CSS -->
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
     <!-- FullCalendar JS -->
@@ -14,32 +14,23 @@
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                initialView: 'timeGridWeek', // Vista settimanale
                 editable: true,
+                slotMinTime: '08:00:00', // Inizio alle 8:00
+                slotMaxTime: '18:00:00', // Fine alle 18:00
+                hiddenDays: [0], // Nasconde la domenica (0 è domenica, 1 è lunedì, ecc.)
+                allDaySlot: false, // Rimuove gli slot per eventi di tutta la giornata
                 dateClick: function(info) {
                     var title = prompt('Inserisci il titolo dell\'evento:');
                     if (title) {
                         calendar.addEvent({
                             title: title,
                             start: info.dateStr,
-                            allDay: true
+                            allDay: false // Imposta che l'evento non sia di tutta la giornata
                         });
                     }
                 },
                 events: [
-                    {
-                        title: 'Evento 1',
-                        start: '2023-05-01'
-                    },
-                    {
-                        title: 'Evento 2',
-                        start: '2023-05-07',
-                        end: '2023-05-10'
-                    },
-                    {
-                        title: 'Evento 3',
-                        start: '2023-05-09T16:00:00'
-                    }
                 ]
             });
 
@@ -59,9 +50,9 @@
         }
         #calendar {
             max-width: 6000px;
-            width: 700px;
-            height: 600px;
-            margin: 900px auto;
+            width: 90%; /* Modificato da 700px a 90% */
+            height: 570px;
+            margin: 0 auto; /* Modificato da 900px a 0 */
             padding: 0 10px;
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
