@@ -177,7 +177,6 @@
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='aggiuntaCliente.jsp'">Aggiungi</button>
     </div>
-    
     <br>
     <div class="container">
         <table>
@@ -201,6 +200,7 @@
                     out.println("<td>" + rs.getString("nome") + "</td>");
                     out.println("<td>" + rs.getString("cognome") + "</td>");
                     out.println("<td>" + rs.getString("telefono") + "</td>");
+                    out.println("<td><button class='elimina-btn' onclick=\"window.location.href='?id=" + rs.getInt("id") + "'\">Prenotazione</button></td>");
                     out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
                     out.println("<td><button class='elimina-btn' onclick=\"window.location.href='elimina.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
