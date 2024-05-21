@@ -54,7 +54,7 @@
         </ul>
     </nav>
     <div class="containerButton">
-        <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+        <button class="aggiungi-btn" onclick="window.location.href='aggiungiSegretario.jsp'">Aggiungi</button>
     </div>
    <div class="container">
     <table>
