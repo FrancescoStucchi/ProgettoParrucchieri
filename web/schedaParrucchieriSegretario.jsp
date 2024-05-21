@@ -76,7 +76,7 @@
       th, td {
         padding: 8px;
         border: 1px solid #ddd;
-        text-align: left;
+        text-align: center;
       }
 
       th {
@@ -109,7 +109,7 @@
     /* Stile quando il cursore è sopra il pulsante */
     .modifica-btn:hover,
     .elimina-btn:hover {
-        background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
+        background-color: blueviolet; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
     }
     .container {
         width: 100%;
@@ -124,15 +124,16 @@
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
-        position: absolute;
-        top: 200px; /* Move down 10px */
-        left: 450px; /* Move to the right 20px */
-        margin-top: -40px;
+    }
+
+    .containerButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 
@@ -168,14 +169,15 @@
             <ul>
                 <li><a href="homeSegretario.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriSegretario.jsp">Parrucchieri</a></li>
-                <li><a href="schedaSegretariSegretario.jsp">Segretari</a></li>
                 <li><a href="#">Impostazioni</a></li>
                 <!-- Aggiungi altri elementi del menu se necessario -->
             </ul>
         </nav>
     </div>
     <br>
-    <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    <div class="containerButton">
+        <button class="aggiungi-btn" onclick="window.location.href='pagina_accedi.jsp'">Aggiungi</button>
+    </div>
     <br>
     <div class="container">
         <table>

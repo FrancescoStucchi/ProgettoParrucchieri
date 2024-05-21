@@ -151,9 +151,8 @@
                         String nomeSede="";
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        String id_sede = request.getParameter("sede_scelta").toString();        
+                        String id_sede = session.getAttribute("id_sede").toString();        
                         String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
-                        session.setAttribute("id_sede", id_sede);
                         ResultSet rs = gestore.getFunzioni().select(sql);
                         boolean registrato = false;
                         while(rs.next()){
@@ -166,7 +165,7 @@
                 %>
             </div>
             <ul>
-                <li><a href="homeSegretario.jsp">Clienti</a></li>
+                <li><a href="homeAmministratore.jsp">Clienti</a></li>
                 <li><a href="schedaParrucchieriAmministratore.jsp">Parrucchieri</a></li>
                 <li><a href="schedaSegretariAmministratore.jsp">Segretari</a></li>
                 <li><a href="schedaSediAmministratore.jsp">Sedi</a></li>
@@ -196,7 +195,7 @@
             </thead>
             <tbody>
             <%
-                sql = "SELECT id, nome, cognome, telefono FROM clienti";
+                sql = "SELECT id, nome, cognome, telefono FROM segretari where tipo = 0 AND sedi WHERE id='"+id_sede+"'";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
