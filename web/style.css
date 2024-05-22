@@ -77,7 +77,20 @@ body {
         }
 
         /* Stile per i pulsanti "Modifica" ed "Elimina" */
-        .modifica-btn,
+        
+
+        .modifica-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: blue;
+        }
+
         .elimina-btn {
             display: inline-block;
             padding: 8px 16px;
@@ -87,21 +100,57 @@ body {
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            background-color: red;
         }
-
-        .modifica-btn {
-            background-color: blue;
+        
+        .prenota-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: mediumorchid;
         }
-
-        .elimina-btn {
-            background-color: #f44336;
+        
+        .prenota-btn:hover{
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: mediumpurple;
         }
-
-        .modifica-btn:hover,
-        .elimina-btn:hover {
-            background-color: blueviolet;
+        
+        .modifica-btn:hover{
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: darkblue;
         }
-
+        
+        .elimina-btn:hover{
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color:darkred
+        }
+        
         .containerButton {
             display: flex;
             justify-content: center;
