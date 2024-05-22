@@ -13,7 +13,7 @@
 <body>
     <div id="header">
         <div>
-            <a href="sceltaSedeAmministratore.jsp">
+            <a href="index.jsp">
                 <img id="logo" src="Immagini/icona-sede.png" alt="icona sede">
             </a>
             <% 
