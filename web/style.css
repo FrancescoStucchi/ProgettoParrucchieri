@@ -10,6 +10,9 @@ body {
         #header {
             background-color: #f0f0f0;
             padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         #logo {
@@ -19,6 +22,7 @@ body {
             margin-right: 10px;
             margin-left: 10px;
             margin-top: 5px;
+            cursor: pointer;
         }
 
         nav {
@@ -26,6 +30,7 @@ body {
             overflow: hidden;
             border-top: 1px solid #ccc; /* aggiungo una sottile linea sopra */
             border-bottom: 1px solid #ccc; /* e una sottile linea sotto */
+            width: 100%;
         }
 
         nav ul {
@@ -51,79 +56,100 @@ body {
         }
         
         .container {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-      }
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-      th, td {
-        padding: 8px;
-        border: 1px solid #ddd;
-        text-align: center;
-      }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
 
-      th {
-        background-color: #f0f0f0;
-    }
-    /* Stile per i pulsanti "Modifica" ed "Elimina" */
-    .modifica-btn,
-    .elimina-btn {
-        display: inline-block;
-        padding: 8px 16px;
-        background-color: #4CAF50; /* Colore di sfondo verde */
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        th {
+            background-color: #f0f0f0;
+        }
 
-    /* Stile per il pulsante "Modifica" */
-    .modifica-btn {
-        background-color: blue; /* Colore di sfondo verde */
-    }
+        /* Stile per i pulsanti "Modifica" ed "Elimina" */
+        .modifica-btn,
+        .elimina-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    /* Stile per il pulsante "Elimina" */
-    .elimina-btn {
-        background-color: #f44336; /* Colore di sfondo rosso */
-    }
+        .modifica-btn {
+            background-color: blue;
+        }
 
-    /* Stile quando il cursore è sopra il pulsante */
-    .modifica-btn:hover,
-    .elimina-btn:hover {
-        background-color: blueviolet; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
-    }
-    .container {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative; /* Aggiunto posizionamento relativo per posizionare il bottone accanto alla tabella */
-    }
-    .aggiungi-btn {
-        background-color: #4CAF50; /* Colore di sfondo verde */
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
+        .elimina-btn {
+            background-color: #f44336;
+        }
 
-    .containerButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    /* Stile quando il cursore è sopra il pulsante */
-    .aggiungi-btn:hover {
-        background-color: #45a049; /* Cambia il colore di sfondo in verde più scuro quando il cursore è sopra */
-    }
+        .modifica-btn:hover,
+        .elimina-btn:hover {
+            background-color: blueviolet;
+        }
+
+        .containerButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .aggiungi-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .aggiungi-btn:hover {
+            background-color: #45a049;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .logout-btn img {
+            width: 30px;
+            height: auto;
+        }
+
+        .logout-btn:hover img {
+            filter: brightness(0.8);
+        }
+
+        /* Aggiungi stile per l'elemento attivo nel menu */
+        nav ul li.active a {
+            border-bottom: 2px solid blue; /* o il colore desiderato */
+        }
+
+        /* Aggiungi stile per il blocco del titolo */
+        #header div {
+            display: flex;
+            align-items: center;
+        }
+        #header h1 {
+            margin-left: 10px; /* Spazio tra il logo e il nome della sede */
+        }
