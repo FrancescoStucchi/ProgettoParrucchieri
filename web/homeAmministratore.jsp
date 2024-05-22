@@ -30,6 +30,9 @@
                     }
                     String sql = "SELECT citta FROM  sedi WHERE id='"+id_sede+"'";
                     session.setAttribute("id_sede", id_sede);
+                    
+                    //qua settiamo la pagina precendete
+                    session.setAttribute("paginaPrecedente", "homeAmministratore.jsp");
                     ResultSet rs = gestore.getFunzioni().select(sql);
                     boolean registrato = false;
                     while(rs.next()){
@@ -82,7 +85,7 @@
                     out.println("<td>" + rs.getString("telefono") + "</td>");
                     out.println("<td><button class='prenota-btn' onclick=\"window.location.href='sceltaServizioPrenotazione.jsp?id=" + rs.getInt("id") + "'\">Prenota</button></td>");
                     out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
-                    out.println("<td><button class='elimina-btn' onclick=\"window.location.href='elimina.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
+                    out.println("<td><button class='elimina-btn' onclick=\"window.location.href='eliminaCliente.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
                 }    
                 } catch (Exception e) {
