@@ -29,16 +29,16 @@
                 events: [
                     {
                         title: 'Evento 1',
-                        start: '2023-05-01'
+                        start: '2024-05-01'
                     },
                     {
                         title: 'Evento 2',
-                        start: '2023-05-07',
-                        end: '2023-05-10'
+                        start: '2024-05-07',
+                        end: '2024-05-10'
                     },
                     {
                         title: 'Evento 3',
-                        start: '2023-05-09T16:00:00'
+                        start: '2024-05-09T16:00:00'
                     }
                 ]
             });
