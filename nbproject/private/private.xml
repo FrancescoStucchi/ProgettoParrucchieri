@@ -3,6 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/sceltaSedeAmministratore.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/aggiungiSegretario.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/schedaParrucchieriAmministratore.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/schedaSediAmministratore.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/homeSegretario.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/eliminaSegretario.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/controlloCredenziali.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/homeAmministratore.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/eliminaCliente.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/schedaParrucchieriSegretario.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/style.css</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/aggiuntaCliente.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/eliminaParrucchiere.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/eliminaSede.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/schedaSegretariAmministratore.jsp</file>
+            <file>file:/C:/Users/Admin/Desktop/scuola/5/informatica/ProgettoParrucchieri/web/aggiungiParrucchiere.jsp</file>
+=======
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/confermaAppuntamento.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/sceltaServizioPrenotazione.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/sceltaSedeAmministratore.jsp</file>
@@ -10,6 +28,7 @@
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/calendario.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/homeSegretario.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/controlloCredenziali.jsp</file>
+>>>>>>> 6a19141245588b43d999793fa0f3d0c1aab2d7c3
         </group>
     </open-files>
 </project-private>

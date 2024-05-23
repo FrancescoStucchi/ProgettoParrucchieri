@@ -94,7 +94,7 @@
     <body>
         <div class="form-container">
             <h1>Aggiungi Nuovo Cliente</h1>
-            <form action="aggiungiCliente" method="post">
+            <form method="POST" action="controlloAggiungiCliente.jsp">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>

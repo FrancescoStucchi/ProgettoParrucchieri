@@ -124,7 +124,7 @@
     <body>
         <div class="form-container">
             <h1>Aggiungi Nuovo Parrucchiere</h1>
-            <form action="aggiungiParrucchiere" method="post">
+             <form method="POST" action="controlloAggiungiParruchiere.jsp">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
