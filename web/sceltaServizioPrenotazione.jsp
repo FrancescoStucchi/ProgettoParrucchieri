@@ -55,10 +55,17 @@
             <select name="sede_scelta" id="servizoiSelect">
                 <option value="" disabled selected>Scegli il servizio</option>
                 <% 
+                    
                     try {
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        
+                        String idCliente;
+                        try{
+                            idCliente = request.getParameter("id").toString();
+                       } catch (Exception e) {
+                            idCliente = session.getAttribute("id").toString();
+                       }
+                        session.setAttribute("idCliente", idCliente);
                         // Query per ottenere i dati delle sedi
                         String sql = "SELECT id, tipo FROM servizi";
                         ResultSet rs = gestore.getFunzioni().select(sql);
