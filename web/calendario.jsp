@@ -8,6 +8,8 @@
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
     <!-- FullCalendar JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Inizializzazione del calendario -->
     <style>
         body {
@@ -29,6 +31,9 @@
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+        button{
+            color: green;
+        }
 
     </style>
 </head>
@@ -44,29 +49,21 @@
                 slotMaxTime: '18:00:00', // Fine alle 18:00
                 hiddenDays: [0], // Nasconde la domenica (0 è domenica, 1 è lunedì, ecc.)
                 allDaySlot: false, // Rimuove gli slot per eventi di tutta la giornata
-                dateClick: function(info) {
-                    var title = prompt('Inserisci il titolo dell\'evento:');
-                    if (title) {
-                        calendar.addEvent({
-                            title: title,
-                            start: info.dateStr,
-                            allDay: false // Imposta che l'evento non sia di tutta la giornata
-                        });
-                    }
-                },
                 eventClick: function(info){
                     var startTime = info.event.start;
-                    var endTime=info.event.end;
-                    var title = prompt('Confermare la prenotaizone del '+startTime.toLocaleString().substring(0,9)+' dalle'+startTime.toString().substring(15, 21)+' alle'+endTime.toString().substring(15, 21)+'?');
-                    if (title) {
-                        calendar.addEvent({
-                            title: "Confermato",    
-                            start: startTime,
-                            end: endTime
-                        });
-                    }    
+                    var endTime = info.event.end;
+                        Swal.fire({
+                        title: 'Conferma',
+                        text: 'Confermare la prenotazione del ' + startTime.toLocaleDateString() + ' dalle ' + startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' alle ' + endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Conferma',
+                        cancelButtonText: 'Annulla'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'confermaAppuntamento.jsp?startTime='+encodeURIComponent(startTime.toString());
+                        }
+                    });
                 },
-                
                 events: [
                     {
                         title: 'Evento 1',
