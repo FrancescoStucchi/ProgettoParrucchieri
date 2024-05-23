@@ -36,7 +36,7 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
+            box-sizing: border-box;      
         }
         input[type="submit"] {
             background-color: #4CAF50;

@@ -53,12 +53,19 @@
         <h1>Scegli il servizio</h1>
         <form id="servizioForm" action="calendario.jsp" method="post">
             <select name="sede_scelta" id="servizoiSelect">
-                <option value="" disabled selected>Scegli la il servizio</option>
+                <option value="" disabled selected>Scegli il servizio</option>
                 <% 
+                    
                     try {
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
-                        
+                        String idCliente;
+                        try{
+                            idCliente = request.getParameter("id").toString();
+                       } catch (Exception e) {
+                            idCliente = session.getAttribute("id").toString();
+                       }
+                        session.setAttribute("idCliente", idCliente);
                         // Query per ottenere i dati delle sedi
                         String sql = "SELECT id, tipo FROM servizi";
                         ResultSet rs = gestore.getFunzioni().select(sql);
@@ -75,7 +82,7 @@
                 %>
             </select>
             <br>
-            <input type="submit" value="Seleziona Sede">
+            <input type="submit" value="Seleziona servizio">
         </form>
     </div>
     <script>
