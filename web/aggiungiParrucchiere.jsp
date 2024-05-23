@@ -13,6 +13,58 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Aggiungi Nuovo Parrucchiere</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .form-container {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .form-container h1 {
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 15px;
+                position: relative;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            .form-group input, .form-group select {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            .form-group .toggle-password {
+                position: absolute;
+                right: 10px;
+                top: 35px;
+                cursor: pointer;
+            }
+            .form-group input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                padding: 10px 20px;
+            }
+            .form-group input[type="submit"]:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
+            }
+        </style>
         
         <script>
             function validateForm() {

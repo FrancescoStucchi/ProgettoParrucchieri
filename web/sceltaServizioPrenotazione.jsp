@@ -75,7 +75,7 @@
                 %>
             </select>
             <br>
-            <input type="submit" value="Seleziona Sede">
+            <input type="submit" value="Seleziona servizio">
         </form>
     </div>
     <script>

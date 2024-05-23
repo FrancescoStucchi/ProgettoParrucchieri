@@ -42,9 +42,14 @@
             background-color: #4CAF50;
             color: white;
             cursor: pointer;
+            disabled: true;
         }
         input[type="submit"]:hover {
             background-color: #45a049;
+        }
+        input[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -75,12 +80,22 @@
                 %>
             </select>
             <br>
-            <input type="submit" value="Seleziona Sede">
+            <input type="submit" value="Seleziona Sede" id="submitBtn" disabled>
         </form>
     </div>
     <script>
+        const sedeSelect = document.getElementById("sedeSelect");
+        const submitBtn = document.getElementById("submitBtn");
+
+        sedeSelect.addEventListener("change", function() {
+            if (sedeSelect.value) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        });
+
         document.getElementById("sedeForm").addEventListener("submit", function(event) {
-            var sedeSelect = document.getElementById("sedeSelect");
             var selectedId = sedeSelect.options[sedeSelect.selectedIndex].value;
             sessionStorage.setItem("id_sede", selectedId);
         });

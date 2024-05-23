@@ -4,41 +4,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-</head>
-<body>
-  <div class="container">
-    <h1>TT</h1>
-    <form method="POST" action="controlloCredenziali.jsp">
-      <%
-          Boolean credentialValidated = (Boolean) session.getAttribute("credentialValidated");
-          String errorMessage = "";
-          if (credentialValidated != null && credentialValidated==false) {
-              errorMessage = "Credenziali errate";
-          }
-      %>
-      
-      <div class="input-group">
-        <label for="nomeUtente">Nome utente:</label>
-        <input type="text" id="nomeUtente" name="nomeUtente" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <div class="error-message" style="color: red; font-weight: bold; margin-bottom: 10px;">
-        <%= errorMessage %>
-      </div>
-      <input type="submit" value="Accedi"/>
-    </form>
-  </div>
-</body>
-</html>
-
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
     body {
       font-family: sans-serif;
       background-color: #f4f4f4;
@@ -114,4 +84,48 @@
     input[type="submit"]:hover {
       background-color: #45a049;
     }
-</style>
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TT</h1>
+    <form method="POST" action="controlloCredenziali.jsp">
+      <%
+          Boolean credentialValidated = (Boolean) session.getAttribute("credentialValidated");
+          String errorMessage = "";
+          if (credentialValidated != null && credentialValidated==false) {
+              errorMessage = "Credenziali errate";
+          }
+      %>
+      
+      <div class="input-group">
+        <label for="nomeUtente">Nome utente:</label>
+        <input type="text" id="nomeUtente" name="nomeUtente" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="toggle-password" id="passwordToggle" onclick="togglePasswordVisibility()">👁️</span>
+      </div>
+      <div class="error-message">
+        <%= errorMessage %>
+      </div>
+      <input type="submit" value="Accedi"/>
+    </form>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const passwordToggle = document.getElementById('passwordToggle');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.textContent = '🙈';
+      } else {
+        passwordInput.type = 'password';
+        passwordToggle.textContent = '👁️';
+      }
+    }
+  </script>
+</body>
+</html>

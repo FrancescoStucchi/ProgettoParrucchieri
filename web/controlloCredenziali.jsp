@@ -26,7 +26,7 @@
                     session.setAttribute("credentialValidated", true);
                     if (rs.getInt("id_sede") == 0) 
                     {
-                      response.sendRedirect("sceltaSedeAmministatore.jsp");
+                      response.sendRedirect("sceltaSedeAmministratore.jsp");
                     } 
                     else 
                     {
