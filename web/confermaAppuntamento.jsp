@@ -4,6 +4,8 @@
     Author     : Francesco
 --%>
 
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +16,10 @@
     <body>
         <%
         // Recupera i parametri dalla richiesta
-        String startTime = request.getParameter("startTime");
-        // Formattazione semplice dei parametri per la visualizzazione
-        out.println("<p><strong>Ora di inizio:</strong> " + startTime + "</n>");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date startTime = formatter.parse( request.getParameter("startTime"));
+        
         %>
     </body>
 </html>
+    

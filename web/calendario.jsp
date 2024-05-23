@@ -54,7 +54,7 @@
                     var endTime = info.event.end;
                         Swal.fire({
                         title: 'Conferma',
-                        text: 'Confermare la prenotazione del ' + startTime.toLocaleDateString() + ' dalle ' + startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' alle ' + endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '?',
+                        text: 'Confermare la prenotazione del ' + startTime.toLocaleDateString() + ' dalle ' + startTime.toLocaleTimeString(2) + ' alle ' + endTime.toLocaleTimeString() + '?',
                         showCancelButton: true,
                         confirmButtonText: 'Conferma',
                         cancelButtonText: 'Annulla'
