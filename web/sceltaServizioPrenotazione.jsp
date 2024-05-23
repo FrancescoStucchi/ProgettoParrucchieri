@@ -52,7 +52,7 @@
     <div class="container">
         <h1>Scegli il servizio</h1>
         <form id="servizioForm" action="calendario.jsp" method="post">
-            <select name="sede_scelta" id="servizoiSelect">
+            <select name="servizioSelect" id="servizioSelect">
                 <option value="" disabled selected>Scegli il servizio</option>
                 <% 
                     

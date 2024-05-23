@@ -38,6 +38,9 @@
     </style>
 </head>
 <body>
+    <%
+        session.setAttribute("id_servizio", request.getParameter("servizioSelect"));
+    %>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -49,18 +52,22 @@
                 slotMaxTime: '18:00:00', // Fine alle 18:00
                 hiddenDays: [0], // Nasconde la domenica (0 è domenica, 1 è lunedì, ecc.)
                 allDaySlot: false, // Rimuove gli slot per eventi di tutta la giornata
-                eventClick: function(info){
-                    var startTime = info.event.start;
-                    var endTime = info.event.end;
-                        Swal.fire({
+                eventClick: function(info) {
+                    var day = info.event.start.toLocaleDateString();
+                    var startTime = info.event.start.toLocaleTimeString();
+                    var endTime = info.event.end.toLocaleTimeString();
+
+                    Swal.fire({
                         title: 'Conferma',
-                        text: 'Confermare la prenotazione del ' + startTime.toLocaleDateString() + ' dalle ' + startTime.toLocaleTimeString(2) + ' alle ' + endTime.toLocaleTimeString() + '?',
+                        text: 'Confermare la prenotazione del ' + day + ' dalle ' + startTime + ' alle ' + endTime + '?',
                         showCancelButton: true,
                         confirmButtonText: 'Conferma',
                         cancelButtonText: 'Annulla'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = 'confermaAppuntamento.jsp?startTime='+encodeURIComponent(startTime.toString());
+                            window.location.href = 'confermaAppuntamento.jsp?giorno=' + encodeURIComponent(day) + 
+                                                   '&oraInizio=' + encodeURIComponent(startTime) + 
+                                                   '&oraFine=' + encodeURIComponent(endTime);
                         }
                     });
                 },
