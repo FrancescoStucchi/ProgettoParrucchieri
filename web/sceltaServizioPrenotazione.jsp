@@ -53,7 +53,7 @@
         <h1>Scegli il servizio</h1>
         <form id="servizioForm" action="calendario.jsp" method="post">
             <select name="sede_scelta" id="servizoiSelect">
-                <option value="" disabled selected>Scegli la il servizio</option>
+                <option value="" disabled selected>Scegli il servizio</option>
                 <% 
                     try {
                         Gestore gestore = new Gestore();

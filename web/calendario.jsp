@@ -9,39 +9,6 @@
     <!-- FullCalendar JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
     <!-- Inizializzazione del calendario -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek', // Vista settimanale
-                editable: true,
-                slotMinTime: '08:00:00', // Inizio alle 8:00
-                slotMaxTime: '18:00:00', // Fine alle 18:00
-                hiddenDays: [0], // Nasconde la domenica (0 è domenica, 1 è lunedì, ecc.)
-                allDaySlot: false, // Rimuove gli slot per eventi di tutta la giornata
-                dateClick: function(info) {
-                    var title = prompt('Inserisci il titolo dell\'evento:');
-                    if (title) {
-                        calendar.addEvent({
-                            title: title,
-                            start: info.dateStr,
-                            allDay: false // Imposta che l'evento non sia di tutta la giornata
-                        });
-                    }
-                },
-                events: [
-                    {
-                        title: 'Evento 1',
-                        start: '2024-05-23T10:00:00',
-                        end: '2024-05-23T12:00:00'
-                    },
-                ]
-            });
-
-            calendar.render();
-        });
-    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,6 +33,52 @@
     </style>
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek', // Vista settimanale
+                editable: true,
+                slotMinTime: '08:00:00', // Inizio alle 8:00
+                slotMaxTime: '18:00:00', // Fine alle 18:00
+                hiddenDays: [0], // Nasconde la domenica (0 è domenica, 1 è lunedì, ecc.)
+                allDaySlot: false, // Rimuove gli slot per eventi di tutta la giornata
+                dateClick: function(info) {
+                    var title = prompt('Inserisci il titolo dell\'evento:');
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: info.dateStr,
+                            allDay: false // Imposta che l'evento non sia di tutta la giornata
+                        });
+                    }
+                },
+                eventClick: function(info){
+                    var startTime = info.event.start;
+                    var endTime=info.event.end;
+                    var title = prompt('Confermare la prenotaizone del '+startTime.toLocaleString().substring(0,9)+' dalle'+startTime.toString().substring(15, 21)+' alle'+endTime.toString().substring(15, 21)+'?');
+                    if (title) {
+                        calendar.addEvent({
+                            title: "Confermato",    
+                            start: startTime,
+                            end: endTime
+                        });
+                    }    
+                },
+                
+                events: [
+                    {
+                        title: 'Evento 1',
+                        start: '2024-05-23T10:00:00',
+                        end: '2024-05-23T12:00:00'
+                    },
+                ]
+            });
+
+            calendar.render();
+        });
+    </script>
     <div id="calendar"></div>
 </body>
 </html>
