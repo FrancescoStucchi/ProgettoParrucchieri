@@ -126,7 +126,7 @@
 <body onload="initMap()">
     <div class="contenitore">
         <h1>Aggiungi Sede</h1>
-        <form oninput="validaForm()">
+        <form action="controlloAggiungiSede.jsp" oninput="validaForm()" method="post">
             <label for="citta">Città</label>
             <input type="text" id="citta" name="citta" required>
 
@@ -139,7 +139,7 @@
             <label for="civico">Civico</label>
             <input type="text" id="civico" name="civico" required>
 
-            <button type="button" id="submitBtn" disabled>Aggiungi Sede</button>
+            <button type="submit" id="submitBtn" disabled>Aggiungi Sede</button>
         </form>
         <div id="mappa"></div>
     </div>
