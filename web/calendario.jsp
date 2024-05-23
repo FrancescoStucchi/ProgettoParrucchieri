@@ -60,11 +60,7 @@
                         cancelButtonText: 'Annulla'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            calendar.addEvent({
-                                title: "Confermato",
-                                start: startTime,
-                                end: endTime
-                            });
+                            window.location.href = 'confermaAppuntamento.jsp?startTime='+encodeURIComponent(startTime.toString());
                         }
                     });
                 },

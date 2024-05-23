@@ -13,13 +13,10 @@
     </head>
     <body>
         <%
-//        // Recupera i parametri dalla richiesta
-//        String startTime = request.getParameter("startTime");
-//        String endTime = request.getParameter("endTime");
-//
-//        // Formattazione semplice dei parametri per la visualizzazione
-//        out.println("<p><strong>Ora di inizio:</strong> " + startTime + "</p>");
-//        out.println("<p><strong>Ora di fine:</strong> " + endTime + "</p>"); 
+        // Recupera i parametri dalla richiesta
+        String startTime = request.getParameter("startTime");
+        // Formattazione semplice dei parametri per la visualizzazione
+        out.println("<p><strong>Ora di inizio:</strong> " + startTime + "</n>");
         %>
     </body>
 </html>
