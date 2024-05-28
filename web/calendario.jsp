@@ -95,8 +95,9 @@
                         int minutes = durata.getMinutes();
                         int seconds = durata.getSeconds();
                         double durataInOre = hours + (minutes / 60.0) + (seconds / 3600.0);
-                        int cicliMattina = (int) Math.ceil(4 / durataInOre);
-                        int cicliPomeriggio = (int) Math.ceil(5 / durataInOre);
+                        int cicliMattina = (int) Math.floor(4.0 / durataInOre);
+                        int cicliPomeriggio = (int) Math.floor(5.0 / durataInOre);
+
                         sql = "SELECT id_parrucchiere FROM capacita WHERE id_servizio=" + session.getAttribute("id_servizio") + ";";
                         rs = gestore.getFunzioni().select(sql);
                         boolean firstEvent = true;
@@ -113,12 +114,12 @@
                                     firstEvent = false;
                                     out.print("{");
                                     out.print("title: '" + cognome + "',");
-                                    out.print("start: '2024-05-28T"+orario+"',");
+                                    out.print("start: '2024-05-29T"+orario+"',");
                                     orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                    out.print("end: '2024-05-28T"+orario+"'");
+                                    out.print("end: '2024-05-29T"+orario+"'");
                                     out.print("}");
                                 }
-                            }
+                            } 
                             sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='13:00:00' AND giorno='" + currentDayOfWeek + "'";
                             rsTurno = gestore.getFunzioni().select(sqlTurno);
                             if (rsTurno.next()) {
@@ -131,9 +132,9 @@
                                     firstEvent = false;
                                     out.print("{");
                                     out.print("title: '" + cognome + "',");
-                                    out.print("start: '2024-05-28T"+orario+"',");
+                                    out.print("start: '2024-05-29T"+orario+"',");
                                     orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                    out.print("end: '2024-05-28T"+orario+"'");
+                                    out.print("end: '2024-05-29T"+orario+"'");
                                     out.print("}");
                                 }
                             }  
