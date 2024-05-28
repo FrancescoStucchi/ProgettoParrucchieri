@@ -123,7 +123,7 @@
     <body>
         <div class="form-container">
             <h1>Aggiungi Nuovo Segretario</h1>
-            <form action="aggiungiSegretario" method="post">
+            <form action="controlloAggiungiSegretario.jsp" method="post">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
