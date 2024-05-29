@@ -72,8 +72,26 @@
             <% for (int i = 0; i < 7; i++) { %>
               <td>
                 <%
+                  String sql2;
+                  String giorno="";
                   String turnoId = null;
-                  String sql2 = "SELECT * FROM turni WHERE giorno = '" + (i + 1) + "' AND ora_inizio < '12:00:00'";
+                  if(i==0)
+                      giorno="MONDAY";
+                  if(i==1)
+                      giorno="TUESDAY";
+                  if(i==2)
+                      giorno="WEDNESDAY";
+                  if(i==3)
+                      giorno="THURSDAY";
+                  if(i==4)
+                      giorno="FRIDAY";
+                  if(i==5)
+                      giorno="SATURDAY";
+                  if(i==6)
+                      giorno="SUNDAY";
+                  
+                  sql2 = "SELECT * FROM turni WHERE giorno = '" + giorno + "' AND ora_inizio <= '12:00:00'";
+                  
                   ResultSet rsTurno = gestore.getFunzioni().select(sql2);
                   if (rsTurno != null && rsTurno.next()) {
                     turnoId = rsTurno.getString("id");
@@ -98,8 +116,25 @@
             <% for (int i = 0; i < 7; i++) { %>
               <td>
                 <%
+                  String sql2;
+                  String giorno="";
                   String turnoId = null;
-                  String sql2 = "SELECT * FROM turni WHERE giorno = '" + (i + 1) + "' AND ora_inizio >= '12:00:00'";
+                  if(i==0)
+                      giorno="MONDAY";
+                  if(i==1)
+                      giorno="TUESDAY";
+                  if(i==2)
+                      giorno="WEDNESDAY";
+                  if(i==3)
+                      giorno="THURSDAY";
+                  if(i==4)
+                      giorno="FRIDAY";
+                  if(i==5)
+                      giorno="SATURDAY";
+                  if(i==6)
+                      giorno="SUNDAY";
+                  
+                  sql2 = "SELECT * FROM turni WHERE giorno = '" + giorno + "' AND ora_inizio > '12:00:00'";
                   ResultSet rsTurno = gestore.getFunzioni().select(sql2);
                   if (rsTurno != null && rsTurno.next()) {
                     turnoId = rsTurno.getString("id");
@@ -122,7 +157,7 @@
         </tbody>
       </table>
       <input type="hidden" name="idParrucchiere" value="<%= idParrucchiere %>">
-      <button type="submit">Salva</button>
+      <button class="aggiungi-btn" type="submit">Salva</button>
     </form>
   </div>
 </body>
