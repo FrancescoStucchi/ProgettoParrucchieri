@@ -108,12 +108,12 @@
                             while(!currentDayOfWeek.equals(lastDayOfWeek.minus(1))){
                                 String sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='08:00:00' AND giorno='" + currentDayOfWeek + "'";
                                 ResultSet rsTurno = gestore.getFunzioni().select(sqlTurno);
-                                if (rsTurno.next()) {
+                                if (rsTurno.next()){
                                     String cognome = rsTurno.getString("cognome");
                                     LocalTime orarioInizio = LocalTime.parse("08:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
                                     LocalTime orarioFine = orarioInizio.plusHours(hours).plusMinutes(minutes);
                                     for (int i = 0; i < cicliMattina; i++) {
-                                        occupato = false; // Reset `occupato` to false for each cycle
+                                        occupato = false;
                                         String sqlOccupato = "SELECT appuntamenti.ora, durata FROM impegno INNER JOIN appuntamenti ON impegno.id_appuntamento= appuntamenti.id WHERE impegno.id_parrucchiere="+id_parrucchiere+" AND appuntamenti.`data`='"+currentDate+"';";
                                         ResultSet rsOccupato = gestore.getFunzioni().select(sqlOccupato);
                                         while(rsOccupato.next()){
@@ -144,11 +144,48 @@
                                         orarioFine = orarioFine.plusHours(hours).plusMinutes(minutes); 
                                     }
                                 }
-                                // Codice simile per il turno pomeridiano...
-                                currentDate = currentDate.plusDays(1);
-                                currentDayOfWeek = currentDate.getDayOfWeek();
+                                sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='13:00:00' AND giorno='" + currentDayOfWeek + "'";
+                                rsTurno = gestore.getFunzioni().select(sqlTurno);
+                                if (rsTurno.next()) {
+                                    String cognome = rsTurno.getString("cognome");
+                                    LocalTime orarioInizio = LocalTime.parse("13:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
+                                    LocalTime orarioFine = orarioInizio.plusHours(hours).plusMinutes(minutes);
+                                    for (int i = 0; i < cicliPomeriggio; i++) {
+                                        occupato = false;
+                                        String sqlOccupato = "SELECT appuntamenti.ora, durata FROM impegno INNER JOIN appuntamenti ON impegno.id_appuntamento= appuntamenti.id WHERE impegno.id_parrucchiere="+id_parrucchiere+" AND appuntamenti.`data`='"+currentDate+"';";
+                                        ResultSet rsOccupato = gestore.getFunzioni().select(sqlOccupato);
+                                            while(rsOccupato.next()){
+                                                LocalTime oraInizioAppuntamento = LocalTime.parse(rsOccupato.getTime("ora").toString());
+                                                LocalTime oraFineAppuntamento = oraInizioAppuntamento.plusHours(rsOccupato.getTime("durata").getHours()).plusMinutes(rsOccupato.getTime("durata").getMinutes());
+                                                // Check for overlapping intervals
+                                                if((orarioInizio.isBefore(oraFineAppuntamento) && orarioFine.isAfter(oraInizioAppuntamento)) || 
+                                                   (oraInizioAppuntamento.isBefore(orarioFine) && oraFineAppuntamento.isAfter(orarioInizio)) || 
+                                                   (orarioInizio.equals(oraInizioAppuntamento) && orarioFine.equals(oraFineAppuntamento))) {
+                                                    occupato = true;
+                                                    break;
+                                                }
+                                            }
+                                            if(!occupato) {
+                                                if (!firstEvent) {
+                                                    out.print(",");
+                                                }
+                                                firstEvent = false;
+                                                out.print("{");
+                                                out.print("title: '" + cognome + "',");
+                                                out.print("start: '"+currentDate+"T"+orarioInizio+"',");
+                                                out.print("end: '"+currentDate+"T"+orarioFine+"',");
+                                                out.print("id: '" + id_parrucchiere + "'");
+                                                out.print("}");
+                                            }
+                                        orarioInizio = orarioInizio.plusHours(hours).plusMinutes(minutes);
+                                        orarioFine = orarioFine.plusHours(hours).plusMinutes(minutes); 
+                                    }
+                                }
+                            // Codice simile per il turno pomeridiano...
+                            currentDate = currentDate.plusDays(1);
+                            currentDayOfWeek = currentDate.getDayOfWeek();
                             }
-                        }
+                        } 
                     %>
                 ]
             });
