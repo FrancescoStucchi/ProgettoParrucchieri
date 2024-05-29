@@ -6,9 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Sede</title>
+  
 </head>
 <body>
   <div id="header">
@@ -26,7 +27,7 @@
         idParrucchiere = request.getParameter("id").toString();
         String sql = "SELECT citta FROM sedi WHERE id='" + id_sede + "'";
         session.setAttribute("id_sede", id_sede);
-         
+
         // Set the previous page
         session.setAttribute("paginaPrecedente", "homeAmministratore.jsp");
         ResultSet rs = gestore.getFunzioni().select(sql);
@@ -36,8 +37,6 @@
         }
       %>
       <h1><%= nomeSede %></h1>
-      <%
-      %>
     </div>
     <button class="logout-btn" onclick="window.location.href='index.jsp'">
       <img src="Immagini/porta-logout.png" alt="Logout">
@@ -54,34 +53,74 @@
   </nav>
   <div class="checkboxes">
     <form id="turniForm" action="salvaTurni.jsp" method="POST">
-      <%
-        sql = "SELECT * FROM turni";
-        String sql2;
-        rs = gestore.getFunzioni().select(sql);
-        ResultSet rsTurno;
-         
-        while (rs.next()) {
-          String turnoId = rs.getString("id");
-          sql2 = "SELECT * FROM svolge WHERE id_parrucchiere = '"+idParrucchiere+"' AND id_turno = '"+turnoId+"'";
-          rsTurno = gestore.getFunzioni().select(sql2);
-          String giorno = rs.getString("giorno");
-          Time oraInizio = rs.getTime("ora_inizio");
-          Time oraFine = rs.getTime("ora_fine");
-          String turno = giorno;
-          String fasciaOraria = oraInizio.before(Time.valueOf("12:00:00")) ? "Mattina" : "Pomeriggio";
-          if (rsTurno.next()) { // Check if the parrucchiere has this turno
-          %>
-          <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>" checked>
-          <label for="turno_<%= turnoId %>"><%= turno %> <%= fasciaOraria %></label><br>
-          <%
-          } else {
-          %>
-          <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>">
-          <label for="turno_<%= turnoId %>"><%= turno %> <%= fasciaOraria %></label><br>
-          <%
-          }
-        }
-      %>
+      <table class="turni-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>LUN</th>
+            <th>MAR</th>
+            <th>MER</th>
+            <th>GIO</th>
+            <th>VEN</th>
+            <th>SAB</th>
+            <th>DOM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mattina</td>
+            <% for (int i = 0; i < 7; i++) { %>
+              <td>
+                <%
+                  String turnoId = null;
+                  String sql2 = "SELECT * FROM turni WHERE giorno = '" + (i + 1) + "' AND ora_inizio < '12:00:00'";
+                  ResultSet rsTurno = gestore.getFunzioni().select(sql2);
+                  if (rsTurno != null && rsTurno.next()) {
+                    turnoId = rsTurno.getString("id");
+                    sql2 = "SELECT * FROM svolge WHERE id_parrucchiere = '"+idParrucchiere+"' AND id_turno = '"+turnoId+"'";
+                    ResultSet rsCheck = gestore.getFunzioni().select(sql2);
+                    if (rsCheck != null && rsCheck.next()) {
+                %>
+                      <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>" checked>
+                <%
+                    } else {
+                %>
+                      <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>">
+                <%
+                    }
+                  }
+                %>
+              </td>
+            <% } %>
+          </tr>
+          <tr>
+            <td>Pomeriggio</td>
+            <% for (int i = 0; i < 7; i++) { %>
+              <td>
+                <%
+                  String turnoId = null;
+                  String sql2 = "SELECT * FROM turni WHERE giorno = '" + (i + 1) + "' AND ora_inizio >= '12:00:00'";
+                  ResultSet rsTurno = gestore.getFunzioni().select(sql2);
+                  if (rsTurno != null && rsTurno.next()) {
+                    turnoId = rsTurno.getString("id");
+                    sql2 = "SELECT * FROM svolge WHERE id_parrucchiere = '"+idParrucchiere+"' AND id_turno = '"+turnoId+"'";
+                    ResultSet rsCheck = gestore.getFunzioni().select(sql2);
+                    if (rsCheck != null && rsCheck.next()) {
+                %>
+                      <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>" checked>
+                <%
+                    } else {
+                %>
+                      <input type="checkbox" name="turno" value="<%= turnoId %>" id="turno_<%= turnoId %>">
+                <%
+                    }
+                  }
+                %>
+              </td>
+            <% } %>
+          </tr>
+        </tbody>
+      </table>
       <input type="hidden" name="idParrucchiere" value="<%= idParrucchiere %>">
       <button type="submit">Salva</button>
     </form>
