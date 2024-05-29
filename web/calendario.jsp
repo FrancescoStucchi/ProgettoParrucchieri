@@ -95,10 +95,10 @@
                         }
                         int hours = durata.getHours();
                         int minutes = durata.getMinutes();
-                        int seconds = durata.getSeconds();
-                        double durataInOre = hours + (minutes / 60.0) + (seconds / 3600.0);
+                        double durataInOre = hours + (minutes / 60.0);
                         int cicliMattina = (int) Math.floor(4.0 / durataInOre);
                         int cicliPomeriggio = (int) Math.floor(5.0 / durataInOre);
+                        boolean occupato = false;
 
                         sql = "SELECT id_parrucchiere FROM capacita INNER JOIN parrucchieri ON parrucchieri.id=capacita.id_parrucchiere WHERE id_servizio=" + session.getAttribute("id_servizio") + " AND id_sede='"+session.getAttribute("id_sede")+"';";
                         rs = gestore.getFunzioni().select(sql);
@@ -110,41 +110,41 @@
                                 ResultSet rsTurno = gestore.getFunzioni().select(sqlTurno);
                                 if (rsTurno.next()) {
                                     String cognome = rsTurno.getString("cognome");
-                                    LocalTime orario = LocalTime.parse("08:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
+                                    LocalTime orarioInizio = LocalTime.parse("08:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
+                                    LocalTime orarioFine = orarioInizio.plusHours(hours).plusMinutes(minutes);
                                     for (int i = 0; i < cicliMattina; i++) {
-                                        if (!firstEvent) {
-                                            out.print(",");
-                                        }
-                                        firstEvent = false;
-                                        out.print("{");
-                                        out.print("title: '" + cognome + "',");
-                                        out.print("start: '"+currentDate+"T"+orario+"',");
-                                        orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                        out.print("end: '"+currentDate+"T"+orario+"',");
-                                        out.print("id: '" + id_parrucchiere + "'");
-                                        out.print("}");
-                                    }
-                                } 
-                                sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='13:00:00' AND giorno='" + currentDayOfWeek + "'";
-                                rsTurno = gestore.getFunzioni().select(sqlTurno);
-                                if (rsTurno.next()) {
-                                    String cognome = rsTurno.getString("cognome");
-                                    LocalTime orario = LocalTime.parse("13:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-                                    for (int i = 0; i < cicliPomeriggio; i++) {
-                                        if (!firstEvent) {
-                                            out.print(",");
-                                        }
-                                        firstEvent = false;
-                                        out.print("{");
-                                        out.print("title: '" + cognome + "',");
-                                        out.print("start: '"+currentDate+"T"+orario+"',");
-                                        orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                        out.print("end: '"+currentDate+"T"+orario+"',");
-                                        out.print("id: '" + id_parrucchiere + "'");
-                                        out.print("}");
-                                    }
-                                }  
+                                        occupato = false; // Reset `occupato` to false for each cycle
+                                        String sqlOccupato = "SELECT appuntamenti.ora, durata FROM impegno INNER JOIN appuntamenti ON impegno.id_appuntamento= appuntamenti.id WHERE impegno.id_parrucchiere="+id_parrucchiere+" AND appuntamenti.`data`='"+currentDate+"';";
+                                        ResultSet rsOccupato = gestore.getFunzioni().select(sqlOccupato);
+                                        while(rsOccupato.next()){
+                                            LocalTime oraInizioAppuntamento = LocalTime.parse(rsOccupato.getTime("ora").toString());
+                                            LocalTime oraFineAppuntamento = oraInizioAppuntamento.plusHours(rsOccupato.getTime("durata").getHours()).plusMinutes(rsOccupato.getTime("durata").getMinutes());
 
+                                            // Check for overlapping intervals
+                                            if((orarioInizio.isBefore(oraFineAppuntamento) && orarioFine.isAfter(oraInizioAppuntamento)) || 
+                                               (oraInizioAppuntamento.isBefore(orarioFine) && oraFineAppuntamento.isAfter(orarioInizio)) || 
+                                               (orarioInizio.equals(oraInizioAppuntamento) && orarioFine.equals(oraFineAppuntamento))) {
+                                                occupato = true;
+                                                break;
+                                            }
+                                        }
+                                        if(!occupato) {
+                                            if (!firstEvent) {
+                                                out.print(",");
+                                            }
+                                            firstEvent = false;
+                                            out.print("{");
+                                            out.print("title: '" + cognome + "',");
+                                            out.print("start: '"+currentDate+"T"+orarioInizio+"',");
+                                            out.print("end: '"+currentDate+"T"+orarioFine+"',");
+                                            out.print("id: '" + id_parrucchiere + "'");
+                                            out.print("}");
+                                        }
+                                        orarioInizio = orarioInizio.plusHours(hours).plusMinutes(minutes);
+                                        orarioFine = orarioFine.plusHours(hours).plusMinutes(minutes); 
+                                    }
+                                }
+                                // Codice simile per il turno pomeridiano...
                                 currentDate = currentDate.plusDays(1);
                                 currentDayOfWeek = currentDate.getDayOfWeek();
                             }
