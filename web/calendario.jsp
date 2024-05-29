@@ -63,6 +63,7 @@
                     var day = info.event.start.toLocaleDateString();
                     var startTime = info.event.start.toLocaleTimeString();
                     var endTime = info.event.end.toLocaleTimeString();
+                    var id = info.event.id;
 
                     Swal.fire({
                         title: 'Conferma',
@@ -74,6 +75,7 @@
                         if (result.isConfirmed) {
                             window.location.href = 'confermaAppuntamento.jsp?giorno=' + encodeURIComponent(day) + 
                                                    '&oraInizio=' + encodeURIComponent(startTime) + 
+                                                   '&idParrucchiere=' + encodeURIComponent(id) + 
                                                    '&oraFine=' + encodeURIComponent(endTime);
                         }
                     });
@@ -98,49 +100,54 @@
                         int cicliMattina = (int) Math.floor(4.0 / durataInOre);
                         int cicliPomeriggio = (int) Math.floor(5.0 / durataInOre);
 
-                        sql = "SELECT id_parrucchiere FROM capacita WHERE id_servizio=" + session.getAttribute("id_servizio") + ";";
+                        sql = "SELECT id_parrucchiere FROM capacita INNER JOIN parrucchieri ON parrucchieri.id=capacita.id_parrucchiere WHERE id_servizio=" + session.getAttribute("id_servizio") + " AND id_sede='"+session.getAttribute("id_sede")+"';";
                         rs = gestore.getFunzioni().select(sql);
                         boolean firstEvent = true;
                         while (rs.next()) {
-                            String sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='08:00:00' AND giorno='" + currentDayOfWeek + "'";
-                            ResultSet rsTurno = gestore.getFunzioni().select(sqlTurno);
-                            if (rsTurno.next()) {
-                                String cognome = rsTurno.getString("cognome");
-                                LocalTime orario = LocalTime.parse("08:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-                                for (int i = 0; i < cicliMattina; i++) {
-                                    if (!firstEvent) {
-                                        out.print(",");
+                            int id_parrucchiere = rs.getInt("id_parrucchiere");
+                            while(!currentDayOfWeek.equals(lastDayOfWeek.minus(1))){
+                                String sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='08:00:00' AND giorno='" + currentDayOfWeek + "'";
+                                ResultSet rsTurno = gestore.getFunzioni().select(sqlTurno);
+                                if (rsTurno.next()) {
+                                    String cognome = rsTurno.getString("cognome");
+                                    LocalTime orario = LocalTime.parse("08:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
+                                    for (int i = 0; i < cicliMattina; i++) {
+                                        if (!firstEvent) {
+                                            out.print(",");
+                                        }
+                                        firstEvent = false;
+                                        out.print("{");
+                                        out.print("title: '" + cognome + "',");
+                                        out.print("start: '"+currentDate+"T"+orario+"',");
+                                        orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
+                                        out.print("end: '"+currentDate+"T"+orario+"',");
+                                        out.print("id: '" + id_parrucchiere + "'");
+                                        out.print("}");
                                     }
-                                    firstEvent = false;
-                                    out.print("{");
-                                    out.print("title: '" + cognome + "',");
-                                    out.print("start: '2024-05-29T"+orario+"',");
-                                    orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                    out.print("end: '2024-05-29T"+orario+"'");
-                                    out.print("}");
-                                }
-                            } 
-                            sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='13:00:00' AND giorno='" + currentDayOfWeek + "'";
-                            rsTurno = gestore.getFunzioni().select(sqlTurno);
-                            if (rsTurno.next()) {
-                                String cognome = rsTurno.getString("cognome");
-                                LocalTime orario = LocalTime.parse("13:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-                                for (int i = 0; i < cicliPomeriggio; i++) {
-                                    if (!firstEvent) {
-                                        out.print(",");
+                                } 
+                                sqlTurno = "SELECT turni.id, parrucchieri.cognome FROM turni INNER JOIN svolge ON turni.id=svolge.id_turno INNER JOIN parrucchieri ON svolge.id_parrucchiere=parrucchieri.id WHERE svolge.id_parrucchiere=" + rs.getInt("id_parrucchiere") + " AND ora_inizio='13:00:00' AND giorno='" + currentDayOfWeek + "'";
+                                rsTurno = gestore.getFunzioni().select(sqlTurno);
+                                if (rsTurno.next()) {
+                                    String cognome = rsTurno.getString("cognome");
+                                    LocalTime orario = LocalTime.parse("13:00:00", DateTimeFormatter.ofPattern("HH:mm:ss"));
+                                    for (int i = 0; i < cicliPomeriggio; i++) {
+                                        if (!firstEvent) {
+                                            out.print(",");
+                                        }
+                                        firstEvent = false;
+                                        out.print("{");
+                                        out.print("title: '" + cognome + "',");
+                                        out.print("start: '"+currentDate+"T"+orario+"',");
+                                        orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
+                                        out.print("end: '"+currentDate+"T"+orario+"',");
+                                        out.print("id: '" + id_parrucchiere + "'");
+                                        out.print("}");
                                     }
-                                    firstEvent = false;
-                                    out.print("{");
-                                    out.print("title: '" + cognome + "',");
-                                    out.print("start: '2024-05-29T"+orario+"',");
-                                    orario = orario.plusHours(hours).plusMinutes(minutes).plusSeconds(seconds);
-                                    out.print("end: '2024-05-29T"+orario+"'");
-                                    out.print("}");
-                                }
-                            }  
+                                }  
 
-                            currentDate = currentDate.plusDays(1);
-                            currentDayOfWeek = currentDate.getDayOfWeek();
+                                currentDate = currentDate.plusDays(1);
+                                currentDayOfWeek = currentDate.getDayOfWeek();
+                            }
                         }
                     %>
                 ]

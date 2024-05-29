@@ -4,6 +4,8 @@
     Author     : Francesco
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Time"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="classi.Gestore"%>
@@ -28,8 +30,22 @@
         String sql1 = "SELECT durata FROM servizi WHERE id="+session.getAttribute("id_servizio");
         ResultSet rs = gestore.getFunzioni().select(sql1);
         if (rs.next()) {    
-            String sql = "INSERT INTO appuntamenti (data, durata, ora, id_cliente) VALUES ('"+a+"-"+m+"-"+g+"','"+rs.getTime("durata")+"', '"+request.getParameter("oraInizio")+"',"+session.getAttribute("idCliente") +");";
-            gestore.getFunzioni().executeQuery(sql);
+               String sql = "INSERT INTO appuntamenti (data, durata, ora, id_cliente) VALUES ('"
+        + a + "-" + m + "-" + g + "','" + rs.getTime("durata") + "', '"
+        + request.getParameter("oraInizio") + "'," + session.getAttribute("idCliente") + ")";
+    
+        // Eseguire l'inserimento e recuperare le chiavi generate
+        PreparedStatement ps = gestore.getFunzioni().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.executeUpdate();
+
+        ResultSet chiaviGenerate = ps.getGeneratedKeys();
+        if (chiaviGenerate.next()) {
+            int idAppuntamento = chiaviGenerate.getInt(1);
+
+            String sql2 = "INSERT INTO impegno (id_parrucchiere, id_servizio, id_appuntamento) VALUES ('"
+                + request.getParameter("idParrucchiere") + "'," + session.getAttribute("id_servizio") + "," + idAppuntamento + ")";
+            gestore.getFunzioni().executeQuery(sql2);
+        }
         }
         response.sendRedirect("homeSegretario.jsp");
         %>
