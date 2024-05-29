@@ -1,204 +1,231 @@
 body {
-            margin: 0;
-            padding: 0;
-        }
-        
-        h1 {
-            align-items: center;
-        }
+    margin: 0;
+    padding: 0;
+}
 
-        #header {
-            background-color: #f0f0f0;
-            padding: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+h1 {
+    align-items: center;
+}
 
-        #logo {
-            float: left;
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
-            margin-left: 10px;
-            margin-top: 5px;
-            cursor: pointer;
-        }
+#header {
+    background-color: #f0f0f0;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        nav {
-            background-color: #f8f8f8; /* colore leggermente più chiaro */
-            overflow: hidden;
-            border-top: 1px solid #ccc; /* aggiungo una sottile linea sopra */
-            border-bottom: 1px solid #ccc; /* e una sottile linea sotto */
-            width: 100%;
-        }
+#logo {
+    float: left;
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+nav {
+    background-color: #f8f8f8; /* colore leggermente più chiaro */
+    overflow: hidden;
+    border-top: 1px solid #ccc; /* aggiungo una sottile linea sopra */
+    border-bottom: 1px solid #ccc; /* e una sottile linea sotto */
+    width: 100%;
+}
 
-        nav ul li {
-            float: left;
-        }
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-        nav ul li a {
-            display: block;
-            color: #333; /* colore del testo */
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+nav ul li {
+    float: left;
+}
 
-        nav ul li a:hover {
-            background-color: #ddd; /* colore leggermente più scuro al passaggio del mouse */
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+nav ul li a {
+    display: block;
+    color: #333; /* colore del testo */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+nav ul li a:hover {
+    background-color: #ddd; /* colore leggermente più scuro al passaggio del mouse */
+}
 
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        th {
-            background-color: #f0f0f0;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        /* Stile per i pulsanti "Modifica" ed "Elimina" */
-        
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
 
-        .modifica-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: blue;
-        }
+th {
+    background-color: #f0f0f0;
+}
 
-        .elimina-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: red;
-        }
-        
-        .prenota-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: mediumorchid;
-        }
-        
-        .prenota-btn:hover{
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: mediumpurple;
-        }
-        
-        .modifica-btn:hover{
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: darkblue;
-        }
-        
-        .elimina-btn:hover{
-            display: inline-block;
-            padding: 8px 16px;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color:darkred
-        }
-        
-        .containerButton {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+/* Stile per i pulsanti "Modifica" ed "Elimina" */
 
-        .aggiungi-btn {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
 
-        .aggiungi-btn:hover {
-            background-color: #45a049;
-        }
+.modifica-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: blue;
+}
 
-        .logout-btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
+.elimina-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: red;
+}
 
-        .logout-btn img {
-            width: 30px;
-            height: auto;
-        }
+.prenota-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: mediumorchid;
+}
 
-        .logout-btn:hover img {
-            filter: brightness(0.8);
-        }
+.prenota-btn:hover{
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: mediumpurple;
+}
 
-        /* Aggiungi stile per l'elemento attivo nel menu */
-        nav ul li.active a {
-            border-bottom: 2px solid blue; /* o il colore desiderato */
-        }
+.modifica-btn:hover{
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: darkblue;
+}
 
-        /* Aggiungi stile per il blocco del titolo */
-        #header div {
-            display: flex;
-            align-items: center;
-        }
-        #header h1 {
-            margin-left: 10px; /* Spazio tra il logo e il nome della sede */
-        }
+.elimina-btn:hover{
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color:darkred
+}
+
+.containerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aggiungi-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.aggiungi-btn:hover {
+    background-color: #45a049;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn img {
+    width: 30px;
+    height: auto;
+}
+
+.logout-btn:hover img {
+    filter: brightness(0.8);
+}
+
+/* Aggiungi stile per l'elemento attivo nel menu */
+nav ul li.active a {
+    border-bottom: 2px solid blue; /* o il colore desiderato */
+}
+
+/* Aggiungi stile per il blocco del titolo */
+#header div {
+    display: flex;
+    align-items: center;
+}
+#header h1 {
+    margin-left: 10px; /* Spazio tra il logo e il nome della sede */
+}
+.checkboxes {
+    margin: 20px;
+  }
+
+  .turni-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .turni-table th, .turni-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .turni-table th {
+    background-color: #f4f4f4;
+  }
+
+  .turni-table td {
+    vertical-align: middle;
+  }
+
+  .turni-table input[type="checkbox"] {
+    transform: scale(1.5);
+    margin: 10px;
+  }
