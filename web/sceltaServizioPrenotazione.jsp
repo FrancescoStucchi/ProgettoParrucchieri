@@ -46,6 +46,10 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        input[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -55,16 +59,15 @@
             <select name="servizioSelect" id="servizioSelect">
                 <option value="" disabled selected>Scegli il servizio</option>
                 <% 
-                    
                     try {
                         Gestore gestore = new Gestore();
                         gestore.loadDatabase();
                         String idCliente;
-                        try{
+                        try {
                             idCliente = request.getParameter("id").toString();
-                       } catch (Exception e) {
+                        } catch (Exception e) {
                             idCliente = session.getAttribute("id").toString();
-                       }
+                        }
                         session.setAttribute("idCliente", idCliente);
                         // Query per ottenere i dati delle sedi
                         String sql = "SELECT id, tipo FROM servizi";
@@ -82,11 +85,22 @@
                 %>
             </select>
             <br>
-            <input type="submit" value="Seleziona servizio">
+            <input type="submit" value="Seleziona servizio" id="submitButton" disabled>
         </form>
     </div>
     <script>
-            document.getElementById("servizioForm").addEventListener("submit", function(event) {
+        document.getElementById("servizioSelect").addEventListener("change", function() {
+            var sedeSelect = document.getElementById("servizioSelect");
+            var submitButton = document.getElementById("submitButton");
+            var selectedId = sedeSelect.options[sedeSelect.selectedIndex].value;
+            if (selectedId !== "") {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+
+        document.getElementById("servizioForm").addEventListener("submit", function(event) {
             var sedeSelect = document.getElementById("servizioSelect");
             var selectedId = sedeSelect.options[sedeSelect.selectedIndex].value;
             sessionStorage.setItem("ServizioForm", selectedId);

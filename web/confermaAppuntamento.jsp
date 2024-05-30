@@ -47,7 +47,8 @@
             gestore.getFunzioni().executeQuery(sql2);
         }
         }
-        response.sendRedirect("homeSegretario.jsp");
+        String paginaPrecedente = session.getAttribute("paginaPrecedente").toString();
+        response.sendRedirect(paginaPrecedente);
         %>
     </body>
 </html>

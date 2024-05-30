@@ -67,6 +67,7 @@
                 <th>NOME</th>
                 <th>COGNOME</th>
                 <th>TELEFONO</th>
+                <th>VISUALIZZA PRENOTAZIONI</th>
                 <th>PRENOTAZIONE</th>
                 <th>MODIFICA</th>
                 <th>ELIMINA</th>
@@ -83,6 +84,7 @@
                     out.println("<td>" + rs.getString("nome") + "</td>");
                     out.println("<td>" + rs.getString("cognome") + "</td>");
                     out.println("<td>" + rs.getString("telefono") + "</td>");
+                    out.println("<td><button class='prenota-btn' onclick=\"window.location.href='visualizzazioneAppuntamentiCliente.jsp?id=" + rs.getInt("id") + "'\">Visualizza Appuntamenti</button></td>");
                     out.println("<td><button class='prenota-btn' onclick=\"window.location.href='sceltaServizioPrenotazione.jsp?id=" + rs.getInt("id") + "'\">Prenotazione</button></td>");
                     out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modificaCliente.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
                     out.println("<td><button class='elimina-btn' onclick=\"window.location.href='eliminaCliente.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
@@ -95,6 +97,9 @@
             %>
         </tbody>
     </table>
+    <div class="containerButton">
+        <button class="aggiungi-btn" onclick="window.location.href='visualizzazioneAppuntamentiGlobali.jsp'">Visualizza disponibilità Generale</button>
+    </div>
 </div>
 </body>
 </html>

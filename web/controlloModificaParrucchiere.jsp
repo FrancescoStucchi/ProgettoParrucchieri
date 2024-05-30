@@ -25,7 +25,7 @@
             // Query di aggiornamento
             String sql = "UPDATE parrucchieri SET nome = '" + nome + "', cognome = '" + cognome + "', telefono = '" + telefono + "', username = '" + username + "', password = '" + password + "', id_sede = " + idSede + " WHERE id = " + idParrucchiere;
             gestore.getFunzioni().executeQuery(sql);
-
+            
             response.sendRedirect(paginaPrecedente);
         %>
 
