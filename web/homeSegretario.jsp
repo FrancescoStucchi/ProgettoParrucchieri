@@ -81,7 +81,7 @@
                     out.println("<td>" + rs.getString("cognome") + "</td>");
                     out.println("<td>" + rs.getString("telefono") + "</td>");
                     out.println("<td><button class='prenota-btn' onclick=\"window.location.href='sceltaServizioPrenotazione.jsp?id=" + rs.getInt("id") + "'\">Prenotazione</button></td>");
-                    out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modifica.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
+                    out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modificaCliente.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
                     out.println("<td><button class='elimina-btn' onclick=\"window.location.href='eliminaCliente.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                     out.println("</tr>");    
                 }    
