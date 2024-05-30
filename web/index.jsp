@@ -10,16 +10,22 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+        font-family: sans-serif;
+        background-image: url('Immagini/sfondo_index.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
     }
 
     .container {
+        opacity: 95%;
       width: 100%;
       max-width: 400px;
       padding: 20px;
@@ -29,9 +35,11 @@
       box-sizing: border-box;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      height: 200px;
+      width: 200px;
     }
 
     .input-group {
@@ -72,7 +80,7 @@
     input[type="submit"] {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #010066; /* Colore nuovo del pulsante */
       color: white;
       border: none;
       border-radius: 5px;
@@ -82,13 +90,13 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: #0056b3; /* Colore nuovo per l'hover del pulsante */
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>TT</h1>
+    <img src="Immagini/logo.png" alt="Logo" class="logo"> 
     <form method="POST" action="controlloCredenziali.jsp">
       <%
           Boolean credentialValidated = (Boolean) session.getAttribute("credentialValidated");
