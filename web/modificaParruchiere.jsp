@@ -94,18 +94,6 @@
                     }
                 }
 
-                function togglePasswordVisibility() {
-                    const passwordInput = document.getElementById('password');
-                    const passwordToggle = document.getElementById('passwordToggle');
-                    if (passwordInput.type === 'password') {
-                        passwordInput.type = 'text';
-                        passwordToggle.textContent = '🙈';
-                    } else {
-                        passwordInput.type = 'password';
-                        passwordToggle.textContent = '👁️';
-                    }
-                }
-
                 const telefonoInput = document.getElementById('telefono');
                 telefonoInput.addEventListener('keydown', restrictToNumbers);
 
@@ -155,7 +143,6 @@
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" value="<%= password %>" required>
-                    <span id="passwordToggle" class="toggle-password">👁️</span>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Telefono:</label>

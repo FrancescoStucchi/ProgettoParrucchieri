@@ -103,18 +103,6 @@
                 }
             }
 
-            function togglePasswordVisibility() {
-                const passwordInput = document.getElementById('password');
-                const passwordToggle = document.getElementById('passwordToggle');
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    passwordToggle.textContent = '🙈';
-                } else {
-                    passwordInput.type = 'password';
-                    passwordToggle.textContent = '👁️';
-                }
-            }
-
             document.addEventListener('DOMContentLoaded', (event) => {
                 const inputs = document.querySelectorAll('#nome, #cognome, #username, #password, #telefono, #sedeSelect');
                 inputs.forEach(input => {
@@ -180,7 +168,6 @@
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" value="<%= password %>" required>
-                    <span id="passwordToggle" class="toggle-password">👁️</span>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Telefono:</label>
