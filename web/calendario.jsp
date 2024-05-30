@@ -33,6 +33,13 @@
         button {
             color: green;
         }
+        .custom-event .fc-event-title {
+            margin-top: 3px;
+            margin-left: 10px;
+            text-align: left;
+            width: 100%;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -58,15 +65,18 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 displayEventTime: false,
                 initialView: 'timeGridWeek',
-                editable: true,
+                editable: false,
                 slotMinTime: '08:00:00',
                 slotMaxTime: '18:00:00',
                 hiddenDays: [0],
                 allDaySlot: false,
-                datesSet: function(info) {
+                events: function(info, successCallback, failureCallback) {
                     fetchEvents(info.start, info.end, function(events) {
-                        calendar.removeAllEvents();
-                        calendar.addEventSource(events);
+                        events = events.map(event => {
+                            event.classNames = ['custom-event'];
+                            return event;
+                        });
+                        successCallback(events);
                     });
                 },
                 eventClick: function(info) {

@@ -30,11 +30,17 @@
     sql = "SELECT id_parrucchiere FROM capacita INNER JOIN parrucchieri ON parrucchieri.id=capacita.id_parrucchiere WHERE id_servizio=" + session.getAttribute("id_servizio") + " AND id_sede='"+session.getAttribute("id_sede")+"';";
     rs = gestore.getFunzioni().select(sql);
 
+    String[] colors = {"#0077cc ", "#5aa2ed", "#a6c6f5", "#1f5e95", "#249af3"}; // Lista di colori predefiniti
+    int colorIndex = 0;
+
     StringBuilder json = new StringBuilder("[");
     boolean firstEvent = true;
 
     while (rs.next()) {
         int id_parrucchiere = rs.getInt("id_parrucchiere");
+        String eventColor = colors[colorIndex % colors.length];
+        colorIndex++;
+
         LocalDate currentDate = start;
         while (!currentDate.isAfter(end)) {
             if (!currentDate.isBefore(today)) {  // Controlliamo che la data corrente non sia antecedente ad oggi
@@ -68,7 +74,8 @@
                             json.append("\"title\":\"").append(cognome).append("\",");
                             json.append("\"start\":\"").append(currentDate).append("T").append(orarioInizio).append("\",");
                             json.append("\"end\":\"").append(currentDate).append("T").append(orarioFine).append("\",");
-                            json.append("\"id\":\"").append(id_parrucchiere).append("\"");
+                            json.append("\"id\":\"").append(id_parrucchiere).append("\",");
+                            json.append("\"color\":\"").append(eventColor).append("\"");
                             json.append("}");
                         }
                         orarioInizio = orarioInizio.plusHours(hours).plusMinutes(minutes);
@@ -104,7 +111,8 @@
                             json.append("\"title\":\"").append(cognome).append("\",");
                             json.append("\"start\":\"").append(currentDate).append("T").append(orarioInizio).append("\",");
                             json.append("\"end\":\"").append(currentDate).append("T").append(orarioFine).append("\",");
-                            json.append("\"id\":\"").append(id_parrucchiere).append("\"");
+                            json.append("\"id\":\"").append(id_parrucchiere).append("\",");
+                            json.append("\"color\":\"").append(eventColor).append("\"");
                             json.append("}");
                         }
                         orarioInizio = orarioInizio.plusHours(hours).plusMinutes(minutes);
