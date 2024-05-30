@@ -113,27 +113,13 @@
       <div class="input-group">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-        <span class="toggle-password" id="passwordToggle" onclick="togglePasswordVisibility()">👁️</span>
       </div>
       <div class="error-message">
         <%= errorMessage %>
       </div>
       <input type="submit" value="Accedi"/>
     </form>
-  </div>
+    </div>
 
-  <script>
-    function togglePasswordVisibility() {
-      const passwordInput = document.getElementById('password');
-      const passwordToggle = document.getElementById('passwordToggle');
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        passwordToggle.textContent = '🙈';
-      } else {
-        passwordInput.type = 'password';
-        passwordToggle.textContent = '👁️';
-      }
-    }
-  </script>
 </body>
 </html>
