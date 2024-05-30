@@ -36,7 +36,8 @@
     }
 
     // Redirect to a success page or back to the original page
-    response.sendRedirect("homeAmministratore.jsp");
+    String paginaPrecedente = session.getAttribute("paginaPrecedente").toString();
+    response.sendRedirect(paginaPrecedente);
   } catch (Exception e) {
     e.printStackTrace();
     out.println("Errore durante il salvataggio dei turni.");

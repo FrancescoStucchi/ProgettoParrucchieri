@@ -26,10 +26,7 @@
         id_sede = request.getParameter("sede_scelta") != null ? request.getParameter("sede_scelta").toString() : session.getAttribute("id_sede").toString();
         idParrucchiere = request.getParameter("id").toString();
         String sql = "SELECT citta FROM sedi WHERE id='" + id_sede + "'";
-        session.setAttribute("id_sede", id_sede);
 
-        // Set the previous page
-        session.setAttribute("paginaPrecedente", "homeAmministratore.jsp");
         ResultSet rs = gestore.getFunzioni().select(sql);
         boolean registrato = false;
         while (rs.next()) {

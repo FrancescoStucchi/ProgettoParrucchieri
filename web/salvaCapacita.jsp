@@ -61,5 +61,6 @@
     }
 
     // Reindirizza a una pagina di conferma o alla pagina precedente
-    response.sendRedirect("homeAmministratore.jsp");
+    String paginaPrecedente = session.getAttribute("paginaPrecedente").toString();
+    response.sendRedirect(paginaPrecedente);
 %>
