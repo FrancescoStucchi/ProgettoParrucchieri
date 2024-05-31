@@ -13,10 +13,14 @@
 </head>
 <body>
     <div id="header">
+        
         <div>
+
             <a href="index.jsp">
                 <img id="logo" src="Immagini/icona-sede.png" alt="icona sede">
+
             </a>
+
             <% 
                 try{
                     String nomeSede="";
@@ -43,6 +47,9 @@
             <%  
             %>
         </div>
+            <a class="logo-container">
+                <img id="logo_base" src="Immagini/logo.png">
+            </a>
         <button class="logout-btn" onclick="window.location.href='index.jsp'">
             <img src="Immagini/porta-logout.png" alt="Logout">
         </button>
@@ -54,20 +61,22 @@
             <!-- Aggiungi altri elementi del menu se necessario -->
         </ul>
     </nav>
+    <br>
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='aggiuntaCliente.jsp'">Aggiungi</button>
     </div>
+    <br>
    <div class="container">
-    <table>
+    <table class="table-container">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>COGNOME</th>
-                <th>TELEFONO</th>
-                <th>PRENOTAZIONE</th>
-                <th>MODIFICA</th>
-                <th>ELIMINA</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Prenotazione</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
               </tr>
             </thead>
             <tbody>

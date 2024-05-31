@@ -43,6 +43,9 @@
             <%  
             %>
         </div>
+        <a class="logo-container">
+            <img id="logo_base" src="Immagini/logo.png">
+        </a>
         <button class="logout-btn" onclick="window.location.href='index.jsp'">
             <img src="Immagini/porta-logout.png" alt="Logout">
         </button>
@@ -63,14 +66,14 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>COGNOME</th>
-                <th>TELEFONO</th>
-                <th>VISUALIZZA PRENOTAZIONI</th>
-                <th>PRENOTAZIONE</th>
-                <th>MODIFICA</th>
-                <th>ELIMINA</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Visualizza Prenotazioni</th>
+                <th>Prenota</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
             </tr>
         </thead>
         <tbody>

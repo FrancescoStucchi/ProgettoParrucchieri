@@ -42,6 +42,9 @@
             <%  
             %>
         </div>
+        <a class="logo-container">
+            <img id="logo_base" src="Immagini/logo.png">
+        </a>
         <button class="logout-btn" onclick="window.location.href='index.jsp'">
             <img src="Immagini/porta-logout.png" alt="Logout">
         </button>

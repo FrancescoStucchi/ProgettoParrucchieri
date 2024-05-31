@@ -42,6 +42,9 @@
             <%  
             %>
         </div>
+        <a class="logo-container">
+            <img id="logo_base" src="Immagini/logo.png">
+        </a>
         <button class="logout-btn" onclick="window.location.href='index.jsp'">
             <img src="Immagini/porta-logout.png" alt="Logout">
         </button>
@@ -60,14 +63,14 @@
     <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>COGNOME</th>
-            <th>TELEFONO</th>
-            <th>MODIFICA ABILITA</th>
-            <th>MODIFICA DISPONIBILITA</th>
-            <th>MODIFICA</th>
-            <th>ELIMINA</th>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Telefono</th>
+            <th>Capacità</th>
+            <th>Disponibilità</th>
+            <th>Modifica</th>
+            <th>Elimina</th>
           </tr>
         </thead>
         <tbody>
@@ -80,8 +83,8 @@
                 out.println("<td>" + rs.getString("nome") + "</td>");
                 out.println("<td>" + rs.getString("cognome") + "</td>");
                 out.println("<td>" + rs.getString("telefono") + "</td>");
-                out.println("<td><button class='prenota-btn' onclick=\"window.location.href='modificaAbilitaParrucchiere.jsp?id=" + rs.getInt("id") + "'\">Modifica Abilita</button></td>");
-                out.println("<td><button class='prenota-btn' onclick=\"window.location.href='aggiungiDisponibilitaParrucchiere.jsp?id=" + rs.getInt("id") + "'\">Modifica Disponibilita</button></td>");
+                out.println("<td><button class='prenota-btn' onclick=\"window.location.href='modificaAbilitaParrucchiere.jsp?id=" + rs.getInt("id") + "'\">Capacità</button></td>");
+                out.println("<td><button class='prenota-btn' onclick=\"window.location.href='aggiungiDisponibilitaParrucchiere.jsp?id=" + rs.getInt("id") + "'\">Disponibilita</button></td>");
                 out.println("<td><button class='modifica-btn' onclick=\"window.location.href='modificaParruchiere.jsp?id=" + rs.getInt("id") + "'\">Modifica</button></td>");
                 out.println("<td><button class='elimina-btn' onclick=\"window.location.href='eliminaParrucchiere.jsp?id=" + rs.getInt("id") + "'\">Elimina</button></td>");
                 out.println("</tr>");    
