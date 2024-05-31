@@ -15,7 +15,7 @@
     <style>
         
 
-    .checkboxes {
+.checkboxes {
   background-color: #fff;
   color: #333;
   border-radius: 8px;
@@ -38,31 +38,31 @@
   position: relative;
   padding-left: 40px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .checkbox label:before {
   content: '';
   position: absolute;
   left: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 10%;
   background: #ecf0f1;
   transition: background 0.3s ease;
 }
 
 .checkbox input:checked + label:before {
-  background: #2ecc71;
+  background: #5aa2ed;
 }
 
 .checkbox label:after {
   content: '';
   position: absolute;
-  left: 9px;
-  top: 5px;
-  width: 12px;
-  height: 22px;
+  left: 4px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
@@ -79,15 +79,15 @@
 }
 
 .checkbox.disabled label:before {
-  background: #bdc3c7;
+  background: #5aa2ed;
 }
 
 .checkbox.disabled label:after {
-  color: #7f8c8d;
+  color: #5aa2ed;
 }
 
 .aggiungi-btn {
-  background-color: #2ecc71;
+  background-color: #5aa2ed;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -99,7 +99,7 @@
 }
 
 .aggiungi-btn:hover {
-  background-color: #27ae60;
+  background-color: #5aa2ed;
 }
 
     </style>

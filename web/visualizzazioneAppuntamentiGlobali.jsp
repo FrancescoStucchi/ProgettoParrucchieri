@@ -78,8 +78,8 @@
                 LocalDate previousDate = currentDate.minusDays(1);
                 LocalDate nextDate = currentDate.plusDays(1);
             %>
-            <button onclick="window.location.href='?date=<%= previousDate %>'">Previous Day</button>
-            <button onclick="window.location.href='?date=<%= nextDate %>'">Next Day</button>
+            <button class='modifica-btn'onclick="window.location.href='?date=<%= previousDate %>'"><</button>
+            <button class='modifica-btn'onclick="window.location.href='?date=<%= nextDate %>'">></button>
         </div>
 
         <table>
