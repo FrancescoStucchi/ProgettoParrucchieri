@@ -11,7 +11,7 @@
     <title>Sede</title>
     <link rel="stylesheet" href="style.css"  type="text/css">
 </head>
-<body>
+<body class="home">
     <div id="header">
         <div>
             <a href="sceltaSedeAmministratore.jsp">

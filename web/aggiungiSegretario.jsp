@@ -16,6 +16,10 @@
         <title>Aggiungi Nuovo Segretario</title>
         <style>
             body {
+                        background-image: url('Immagini/sfondo_aggiunta.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
                 font-family: Arial, sans-serif;
                 background-color: #f2f2f2;
                 display: flex;
@@ -24,6 +28,7 @@
                 height: 100vh;
             }
             .form-container {
+                opacity: 90%;
                 background-color: #fff;
                 padding: 20px;
                 border-radius: 8px;

@@ -12,6 +12,10 @@
     <title>Aggiungi Sede</title>
     <style>
         body {
+                                    background-image: url('Immagini/sfondo_aggiunta.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
@@ -22,6 +26,7 @@
             height: 100vh;
         }
         .contenitore {
+            opacity: 90%;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;

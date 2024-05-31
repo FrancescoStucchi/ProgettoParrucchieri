@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sede</title>
 </head>
-<body>
+<body class="home">
     <div id="header">
         
         <div>
