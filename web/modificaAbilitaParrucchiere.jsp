@@ -104,7 +104,7 @@
 
     </style>
 </head>
-<body>
+<body> 
 <div id="header">
     <div>
         <a href="sceltaSedeAmministratore.jsp">
