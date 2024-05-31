@@ -59,9 +59,12 @@
             <!-- Aggiungi altri elementi del menu se necessario -->
         </ul>
     </nav>
+    <br>
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='aggiuntaCliente.jsp'">Aggiungi</button>
+        <button class="aggiungi-btn" onclick="window.location.href='visualizzazioneAppuntamentiGlobali.jsp'">Visualizza disponibilità Generale</button>
     </div>
+    <br>
    <div class="container">
     <table>
         <thead>
@@ -100,9 +103,6 @@
             %>
         </tbody>
     </table>
-    <div class="containerButton">
-        <button class="aggiungi-btn" onclick="window.location.href='visualizzazioneAppuntamentiGlobali.jsp'">Visualizza disponibilità Generale</button>
-    </div>
 </div>
 </body>
 </html>

@@ -113,7 +113,7 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: green;
+    background-color: #0077cc;
 }
 
 .prenota-btn:hover{
@@ -125,8 +125,34 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: mediumpurple;
+    background-color: darked;
 }
+
+.capacita-btn{
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #a6c6f5;
+}
+
+.capacita-btn:hover{
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: darked;
+}
+
+
 
 .modifica-btn:hover{
     display: inline-block;

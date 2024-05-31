@@ -58,25 +58,28 @@
             <!-- Aggiungi altri elementi del menu se necessario -->
         </ul>
     </nav>
+            <br>
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='aggiungiSegretario.jsp'">Aggiungi</button>
     </div>
+            <br>
+                <
    <div class="container">
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>COGNOME</th>
-                <th>TELEFONO</th>
-                <th>MODIFICA</th>
-                <th>ELIMINA</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
             </tr>
         </thead>
         <tbody>
             <%
                 
-                    sql = "SELECT id, nome, cognome, telefono FROM segretari where tipo = 0 AND  id_sede='"+id_sede+"'";
+                sql = "SELECT id, nome, cognome, telefono FROM segretari where tipo = 0 AND  id_sede='"+id_sede+"'";
                 rs = gestore.getFunzioni().select(sql);
                 while(rs.next()){
                     out.println("<tr>");
