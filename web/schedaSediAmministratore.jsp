@@ -41,8 +41,9 @@
             <h1><%= nomeSede%></h1>
             <%  
             %>
+}
         </div>
-        <a class="logo-container">
+        <a class="logo-container" onclick="window.location.href='homeAmministratore.jsp'">
             <img id="logo_base" src="Immagini/logo.png">
         </a>
         <button class="logout-btn" onclick="window.location.href='index.jsp'">
