@@ -6,6 +6,7 @@ body {
 
 h1 {
     align-items: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 #header {
@@ -125,7 +126,7 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: darked;
+    background-color: darkblue;
 }
 
 .capacita-btn{
@@ -137,7 +138,7 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #a6c6f5;
+    background-color: #5aa2ed;
 }
 
 .capacita-btn:hover{
@@ -149,7 +150,7 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: darked;
+    background-color: darkblue;
 }
 
 

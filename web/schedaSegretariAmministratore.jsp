@@ -63,7 +63,7 @@
         <button class="aggiungi-btn" onclick="window.location.href='aggiungiSegretario.jsp'">Aggiungi</button>
     </div>
             <br>
-                <
+                
    <div class="container">
     <table>
         <thead>

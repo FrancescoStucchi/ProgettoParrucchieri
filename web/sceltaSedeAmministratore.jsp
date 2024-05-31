@@ -12,6 +12,10 @@
     <title>Scegli la sede da amministrare</title>
     <style>
         body {
+            background-image: url('Immagini/sfondo_scelta.png');
+             background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -22,6 +26,7 @@
             height: 100vh;
         }
         .container {
+            opacity: 90%;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -29,6 +34,7 @@
         }
         h1 {
             text-align: center;
+            font-family: 'Helvetica', 'Arial', sans-serif;
         }
         select, input[type="submit"] {
             width: 100%;
@@ -39,13 +45,13 @@
             box-sizing: border-box;      
         }
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #010066;
             color: white;
             cursor: pointer;
             disabled: true;
         }
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: darker;
         }
         input[type="submit"]:disabled {
             background-color: #ccc;
