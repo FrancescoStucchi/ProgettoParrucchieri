@@ -67,13 +67,13 @@
     <table>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>CITTA</th>
-                <th>CAP</th>
-                <th>VIA</th>
-                <th>N.CIVICO</th>
-                <th>MODIFICA</th>
-                <th>ELIMINA</th>
+                <th>Id</th>
+                <th>Città</th>
+                <th>Cap</th>
+                <th>Via</th>
+                <th>N.Civico</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
               </tr>
             </thead>
             <tbody>

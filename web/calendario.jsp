@@ -24,11 +24,12 @@
         #calendar {
             max-width: 6000px;
             width: 90%; /* Modificato da 700px a 90% */
-            height: 570px;
+            height: 630px;
             margin: 0 auto; /* Modificato da 900px a 0 */
-            padding: 0 10px;
+            padding: 30px;
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
         button {
             color: green;
@@ -43,6 +44,7 @@
     </style>
 </head>
 <body>
+    <br>
     <%
         session.setAttribute("id_servizio", request.getParameter("servizioSelect"));
     %>
