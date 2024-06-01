@@ -64,7 +64,7 @@
     <br>
     <div class="containerButton">
         <button class="aggiungi-btn" onclick="window.location.href='aggiuntaCliente.jsp'">Aggiungi</button>
-        <button class="aggiungi-btn" onclick="window.location.href='visualizzazioneAppuntamentiGlobali.jsp'">Visualizza disponibilità Generale</button>
+        <button class="aggiungi-btn" onclick="window.location.href='visualizzazioneAppuntamentiGlobali.jsp'">Visualizza appuntamenti</button>
     </div>
     <br>
    <div class="container">

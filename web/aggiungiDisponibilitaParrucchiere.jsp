@@ -154,6 +154,7 @@
         </tbody>
       </table>
       <input type="hidden" name="idParrucchiere" value="<%= idParrucchiere %>">
+      <br>
       <button class="aggiungi-btn" type="submit">Salva</button>
     </form>
   </div>

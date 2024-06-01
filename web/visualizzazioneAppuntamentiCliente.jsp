@@ -13,6 +13,7 @@
     <title>Sede</title>
 </head>
 <body>
+    <br>
     <div id="header">
         <div>
             <a href="sceltaSedeAmministratore.jsp">
@@ -62,6 +63,7 @@
     </nav>
 
     <div class="container">
+        <br> 
         <div class="date-navigation">
             <%
                 LocalDate currentDate;
@@ -77,17 +79,19 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>NOME CLIENTE</th>
-                    <th>NOME PARRUCCHIERE</th>
-                    <th>TIPO SERVIZIO</th>
-                    <th>DATA</th>
-                    <th>ORA INIZIO</th>
-                    <th>ORA FINE</th>
-                    <th>ELIMINA</th>
+                    <th>Id</th>
+                    <th>Nome cliente</th>
+                    <th>Nome parrucchiere</th>
+                    <th>tipo servizio</th>
+                    <th>Data</th>
+                    <th>Ora inizio</th>
+                    <th>Ora fine</th>
+                    <th>Elimina</th>
                 </tr>
             </thead>
             <tbody>
+            <br>
+            <br>
                 <%
                     try {
                         String clientId = request.getParameter("id");

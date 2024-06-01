@@ -3,18 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaParrucchieriAmministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/aggiungiSede.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/confermaAppuntamento.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/aggiuntaCliente.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/parrucchieri.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/sceltaSedeAmministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/aggiungiParrucchiere.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaSegretariAmministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/calendario.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/aggiungiDisponibilitaParrucchiere.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/aggiungiSegretario.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/fetchEvents.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaParrucchieriAmministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/visualizzazioneAppuntamentiCliente.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/sceltaServizioPrenotazione.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/index.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaParrucchieriSegretario.jsp</file>
-            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaSegretariAmministratore.jsp</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/visualizzazioneAppuntamentiGlobali.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/homeAmministratore.jsp</file>
-            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/calendario.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/style.css</file>
+            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/modificaAbilitaParrucchiere.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/homeSegretario.jsp</file>
             <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/schedaSediAmministratore.jsp</file>
-            <file>file:/C:/Users/Francesco/Documents/NetBeansProjects/ProgettoParruchieri/web/fetchEvents.jsp</file>
         </group>
     </open-files>
 </project-private>
